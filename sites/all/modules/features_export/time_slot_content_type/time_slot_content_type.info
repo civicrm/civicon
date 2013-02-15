@@ -1,0 +1,8 @@
+name = Time slot Content Type
+core = 7.x
+package = Features
+dependencies[] = date
+dependencies[] = features
+features[features_api][] = api:1
+features[field][] = node-time_slot-field_slot_datetime
+features[node][] = time_slot

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Session View feature.
+ */
+
+include_once 'session_view.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Room Content Type feature.
+ */
+
+include_once 'room_content_type.features.inc';

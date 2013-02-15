@@ -1,0 +1,5 @@
+;$Id$
+name = session_register
+description =  Validate time slot and room while creating a session.
+package = session_register
+core = 7.x

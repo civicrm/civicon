@@ -1,0 +1,28 @@
+<?php
+
+  /**
+   * @file
+   * Validate time slot and room while creating a session.
+   */
+function session_register_node_validate($node, $form, &$form_state) {
+
+    if ( $node->type == 'session' ) {
+        $time_slot_id = $form_state['values']['field_session_timeslot']['und'][0]['target_id'];
+        $room_id = array();
+        foreach ($form_state['values']['field_session_room']['und'] as $k => $v) {
+            $room_id[] = $form_state['values']['field_session_room']['und'][$k]['target_id'];
+        }
+        $query = db_select('field_revision_field_session_timeslot', 'ts');
+        $query->Join('field_revision_field_session_room', 'sr', 'ts.entity_id = sr.entity_id');
+        $result = $query
+            ->fields('sr', array('entity_id'))
+            ->condition('sr.field_session_room_target_id', $room_id )
+            ->condition('ts.field_session_timeslot_target_id', $time_slot_id, '=')
+            ->execute()
+            ->fetchAssoc();
+        $entityresult=$result['entity_id'];
+        if (!empty($entityresult)) {
+            form_set_error('time', t('Timeslot and room is already exist please select other combition'));
+        }
+    }
+  }

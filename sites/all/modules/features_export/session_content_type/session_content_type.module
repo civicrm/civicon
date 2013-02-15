@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Session Content Type feature.
+ */
+
+include_once 'session_content_type.features.inc';

@@ -1,0 +1,13 @@
+name = Room Content Type
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = number
+dependencies[] = text
+features[features_api][] = api:1
+features[field][] = node-room-body
+features[field][] = node-room-field_room_capacity
+features[field][] = node-room-field_room_photo
+features[field][] = node-room-field_room_session_capacity
+features[node][] = room

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Bronze Sponsors View feature.
+ */
+
+include_once 'bronze_sponsors_view.features.inc';

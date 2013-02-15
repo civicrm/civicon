@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Gold Sponsors View feature.
+ */
+
+include_once 'gold_sponsors_view.features.inc';

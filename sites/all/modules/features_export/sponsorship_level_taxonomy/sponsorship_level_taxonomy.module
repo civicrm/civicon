@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sponsorship Level Taxonomy feature.
+ */
+
+include_once 'sponsorship_level_taxonomy.features.inc';

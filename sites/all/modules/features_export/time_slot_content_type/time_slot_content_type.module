@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Time slot Content Type feature.
+ */
+
+include_once 'time_slot_content_type.features.inc';
