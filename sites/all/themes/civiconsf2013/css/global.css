@@ -407,7 +407,7 @@ p.tweet
 /*body background image*/
 .front
 {
-	background-image:url(../images/untitle1.jpg);
+	background-image:url(../images/front-back.jpg);
 	background-repeat:no-repeat;
 	background-position:center top;
 	background-attachment:fixed;
@@ -415,7 +415,7 @@ p.tweet
 
 .not-front
 {
-	background-image:url(../images/untitle2.jpg);
+	background-image:url(../images/other-back.jpg);
 	background-repeat:no-repeat;
 	background-position:center top;
 	background-attachment:fixed;
