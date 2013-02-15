@@ -571,12 +571,12 @@ p.tweet
 
 #block-block-2 .content{margin-top:15px;overflow: hidden;}
 
-#block-block-3
-{
-    border-top: 1px dotted #000000;
-    margin-top: 5px;
-    padding-bottom: 13px;
+#block-views-quotes-on-homepage-block {
+  border-top: 1px dotted #000000 !important;
+  margin-top: 5px !important;
+  padding-bottom: 13px !important;
 }
+
 /*end home four blocks*/
 
 /*node-sponsor*/
