@@ -706,4 +706,10 @@ p.tweet
 #block-block-1{margin:0 !important;}
 
 .email-civi{color:#fff !important;}
+
+.spread-the-word {
+  padding: 10px; 
+  background: none repeat scroll 0 0 #E7F1F2;
+  background-color: #FFFFFF;
+}
 /*end footer*/
