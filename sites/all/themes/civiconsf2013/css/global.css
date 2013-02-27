@@ -467,8 +467,10 @@ p.tweet
     opacity: 0.8;
 	filter: alpha(opacity=80) !important;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
-    padding: 0 27px 0 40px !important;
+    padding: 0 27px 20px 40px !important;
 }
+
+.view-silver-bronze-sponsors .item-list ul li{text-align:center;}
 
 .not-front.not-logged-in #content .section
 {

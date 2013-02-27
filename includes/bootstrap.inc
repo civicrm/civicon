@@ -8,7 +8,7 @@
 /**
  * The current system version.
  */
-define('VERSION', '7.19');
+define('VERSION', '7.20');
 
 /**
  * Core API compatibility.
@@ -2209,19 +2209,13 @@ function drupal_bootstrap($phase = NULL, $new_phase = TRUE) {
 function drupal_get_user_timezone() {
   global $user;
   if (variable_get('configurable_timezones', 1) && $user->uid && $user->timezone) {
-    $timezone = $user->timezone;
+    return $user->timezone;
   }
   else {
     // Ignore PHP strict notice if time zone has not yet been set in the php.ini
     // configuration.
-    $timezone = variable_get('date_default_timezone', @date_default_timezone_get());
+    return variable_get('date_default_timezone', @date_default_timezone_get());
   }
-
-  // check timezone whether is exists
-  if (!array_search($timezone, DateTimeZone::listIdentifiers())) {
-    $timezone = @date_default_timezone_get();
-  }
-  return $timezone;
 }
 
 /**
