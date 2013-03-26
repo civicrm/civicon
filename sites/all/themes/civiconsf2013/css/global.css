@@ -168,16 +168,24 @@
 
 .sidebar .block
 {
-	background-color:#fff !important;
-	border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-o-border-radius: 8px;
-	-ms-border-radius: 8px;
-	margin: 0 0 15px !important;
+  background-color: #EEEEEE !important;
+  border: 0 none !important;
+  border-radius: 8px 8px 8px 8px !important;
+  -moz-border-radius: 8px 8px 8px 8px !important;
+  -webkit-border-radius: 8px 8px 8px 8px !important;
+  -o-border-radius: 8px 8px 8px 8px !important;
+  -ms-border-radius: 8px 8px 8px 8px !important;
+  margin: 0 0 15px !important;
 }
 
-#sidebar-first, #sidebar-second{margin-top:18px;}
+#sidebar-first, #sidebar-second
+{
+  opacity: 0.8 !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
+  filter: alpha(opacity=80) !important;
+  margin-top:18px;
+}
+
 /*end sidebar*/
 
 /*main content*/
@@ -484,7 +492,7 @@ p.tweet
     opacity: 0.8;
 	filter: alpha(opacity=80) !important;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
-    padding: 0 27px 0 40px !important;
+    padding: 0 27px 20px 40px !important;
 }
 
 .front h1#page-title
@@ -517,14 +525,11 @@ p.tweet
 /*hompage four blocks*/
 .fpbox
 {
-    background: none repeat scroll 0 0 #E7F1F2;
-    height: auto;
-    margin: 0 13px 0 0;
-    opacity: 0.8;
-    padding: 5px 27px 5px 40px !important;
-    width: 653px;
-    filter: alpha(opacity=80) !important;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
+  background: none repeat scroll 0 0 transparent !important;
+  height: auto;
+  margin: 0 13px 0 0;
+  padding: 5px 27px 5px 40px !important;
+  width: 653px;
 }
 
 .fpbox .inner
@@ -539,21 +544,12 @@ p.tweet
 
 #box1
 {
-    border-radius: 8px 8px 0 0;
-    -moz-border-radius: 8px 8px 0 0;
-    -webkit-border-radius: 8px 8px 0 0;
-    -o-border-radius: 8px 8px 0 0;
-    -ms-border-radius: 8px 8px 0 0;
-	padding-top: 20px !important;
+  padding-top: 20px !important;
 }
 
 #box4
 {
-    border-radius: 0 0 8px 8px;
-    -moz-border-radius: 0 0 8px 8px
-    -webkit-border-radius: 0 0 8px 8px;
-    -o-border-radius: 0 0 8px 8px;
-    -ms-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 0 0 !important;
 }
 
 .fpbox h2
@@ -714,4 +710,18 @@ p.tweet
   background: none repeat scroll 0 0 #E7F1F2;
   background-color: #FFFFFF;
 }
+
+#main-four
+{
+  background-color: #EEEEEE;
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  -o-border-radius: 8px 8px 8px 8px;
+  -ms-border-radius: 8px 8px 8px 8px;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
+  filter: alpha(opacity=80) !important;
+}
+
 /*end footer*/
