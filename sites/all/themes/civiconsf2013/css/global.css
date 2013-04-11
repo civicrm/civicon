@@ -725,3 +725,21 @@ p.tweet
 }
 
 /*end footer*/
+
+h2 {
+  color: #07435D !important;
+  font-family: 'Roboto Condensed','PT Sans Caption',Arial,Helvetica,sans-serif !important;
+  letter-spacing: 1px;
+	font-size:15px;
+	text-transform:uppercase;
+  font-weight:bold !important;
+}
+
+h3 {
+  color: #07435D !important;
+  font-family: 'Roboto Condensed','PT Sans Caption',Arial,Helvetica,sans-serif !important;
+  letter-spacing: 1px;
+	font-size:12px;
+  font-weight:bold !important;
+}
+
