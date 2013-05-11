@@ -25,7 +25,7 @@ ul.nice-menu li {
 ul.nice-menu a {
   display: block;
   /*Default to Blue, but override as necessary*/
-  color: #027AC6;
+  color: #027ac6;
 }
 
 ul.nice-menu ul,
@@ -107,20 +107,19 @@ ul.nice-menu li.over li.over li.over ul ul ul,
 ul.nice-menu li.menuparent ul,
 /* For Garland header. */
 #header-region ul.nice-menu li.menuparent ul {
-	overflow: visible !important;
-	/* overflow: hidden; */
+  overflow: visible !important;
 }
 
 ul.nice-menu li.menuparent ul iframe,
 /* For Garland header. */
 #header-region ul.nice-menu li.menuparent ul iframe {
-	display: none;
-	display/**/: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	filter: mask();
-	width: 20px;
-	height: 20px;
+  display: none;
+  display/**/: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: mask();
+  width: 20px;
+  height: 20px;
 }
