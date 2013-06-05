@@ -10,20 +10,21 @@ Our current policy is to use a multisite set up for all cons and camps, etc and 
 
 2. To share the user table we need to edit settings.php ...
 
-> $databases = array (
->         'default' => array (
->             'default' => array (
->                 'database' => 'xxx',
->                 'username' => 'xxx',
->                 'password' => 'xxx',
->                 'host' => 'xxx',
->                 'port' => 'xxx',
->                 'driver' => 'mysql',
->                 'prefix' => array('users' => '[civicrm.org drupal db].'),
->                 ),
->             ),
->         );
-
+```php`
+$databases = array (
+        'default' => array (
+            'default' => array (
+                'database' => 'xxx',
+                'username' => 'xxx',
+                'password' => 'xxx',
+                'host' => 'xxx',
+                'port' => 'xxx',
+                'driver' => 'mysql',
+                'prefix' => array('users' => '[civicrm.org drupal db].'),
+                ),
+            ),
+        );
+````
 3. ... and grant select and update access for the civicon user on the civicrm.org database.
 
 > GRANT SELECT,UPDATE ON [civicrm.org drupal db].users TO [civicron user]@"[host]"
