@@ -27,8 +27,11 @@ $databases = array (
 ````
 3. ... and grant select and update access for the civicon user on the civicrm.org database.
 
-> GRANT SELECT,UPDATE ON [civicrm.org drupal db].users TO [civicron user]@"[host]"
-
+```mysql
+`GRANT SELECT,UPDATE ON [civicrm.org drupal db].users TO [civicron user]@"[host]"
+````
 ## To archive a site
 
-Use wget (please add instructions when you archive a site)
+Use wget
+
+TODO: This documentation should be updated with appropriate archive instructions.
