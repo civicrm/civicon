@@ -524,6 +524,7 @@ h1#site-name {
 #main {
   margin-top: 20px;
   margin-bottom: 40px;
+  padding: 1px 0 0;
 }
 
 /* ----------------- Featured ----------------- */
