@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1#page-title, .front h1#page-title
+{
+	padding-top:0 !important;
+}
+
+#content .section
+{
+	margin-top:28px !important;
+}
+
+.tweet_text
+{
+	position:absolute;
+	width:640px;
+}
+
+#twitter_block_results ul li{padding-bottom:16px !important;}
+
+#block-twitter-block-default{padding-bottom:25px !important;}
