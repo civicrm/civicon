@@ -4,7 +4,7 @@
     margin:0;
 }
 
-#logo-section{
+#logo-section, .in-maintenance #header .section{
     height:180px;
     width: 600px;
     background-image:url('logo.png');
