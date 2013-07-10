@@ -1,0 +1,175 @@
+#header{
+    height:180px;
+    background-image:url('header-gradient.png');
+    margin:0;
+}
+
+#logo-section{
+    height:180px;
+    width: 600px;
+    background-image:url('logo.png');
+    margin: auto;
+}
+
+#header #secondary-menu{
+    text-transform:uppercase;
+}
+
+#header #secondary-menu #secondary-menu-links{
+    padding: 2px;
+    font-size:9px;
+    font-weight: bold;
+    background-color: #dc0069;
+    margin:0;
+}
+#header #secondary-menu #secondary-menu-links a{
+    color: white;
+}
+
+#featured{
+    margin:0;
+    padding: 0;
+    text-shadow:none;
+    background-color:transparent;
+    border: none;
+}
+
+#featured .content{
+    margin-top:0;
+}
+#featured .block-nice-menus{
+    text-align:left;
+}
+
+#featured .section{
+    background-color:white;
+}
+
+ul.nice-menu{
+    padding:0px
+}
+
+ul.nice-menu-down li {
+    font-family: Oswald;
+    text-transform:uppercase;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+}
+
+ul.nice-menu ul {
+  border-top: none;
+  margin:5px 0px;
+}
+
+ul.nice-menu a{
+    padding:5px 0px;
+    color: #dc0069;
+    text-decoration:none;
+}
+ul.nice-menu-down li a{
+    font-weight:normal;
+}
+ul.nice-menu-down li {
+    margin: 0px 35px;
+}
+ul.nice-menu-down li li {
+    margin: 0px;
+}
+
+ul.nice-menu-down li.menuparent {
+    background-color:white !important;
+}
+
+ul.nice-menu-down .menuparent a {
+    padding-right: 20px;
+}
+body{
+    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    color: #666666;
+    line-height:1.8em;
+    /*    background-color:#e9f4fb; */
+}
+
+
+p {
+    margin:1em 0;
+    font-size:15px;
+    text-align:center;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Oswald;
+    text-transform:uppercase;
+    text-align:center;
+    margin-top:2em;
+    margin-bottom:14px;
+}
+h1#page-title {
+    margin-top:2em;
+    font-size:36px;
+    color: #666666;
+/*    background-image: url('pink-stars.png');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    padding-bottom:30px;
+    margin-bottom:40px;
+*/
+}
+
+#content h2 {
+    padding:10px;
+    font-size:24px;
+    background-image: url('green-stars.png');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    padding-bottom:20px;
+    margin-bottom:20px;
+}
+#content .section, .sidebar .section {
+    padding: 0px;
+}
+
+a {
+    color: #dc0069;
+}
+#main {
+    background-color:white;
+    width:800px;
+    margin-top:0;
+}
+.no-sidebars #content {
+    float: none;
+}
+
+#header div.section, #messages div.section, #main, #triptych, #footer-columns, #footer {
+    width: 760px;
+}
+#featured div.section{
+
+    width: 830px;
+}
+
+#footer {
+    border:none;
+}
+
+#footer-wrapper {
+    background-image:url('header-gradient.png');
+    background-color: #77cc5e;
+    background-repeat:repeat-x;
+    background-position:top;
+}
+
+
+.region-triptych-first, .region-triptych-middle, .region-triptych-last {
+    margin: 9px 10px 30px;
+    width: 213px;
+}
+
+
+
+.region-content ul, .region-content ol {
+    margin: 1em 7em;
+}
