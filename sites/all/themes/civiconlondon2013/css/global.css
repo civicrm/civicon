@@ -118,6 +118,10 @@ h1#page-title {
 */
 }
 
+.front h1.title {
+display: none;
+}
+
 #content h2 {
     padding:10px;
     font-size:24px;
