@@ -115,6 +115,10 @@ display: none;
     padding-bottom:20px;
     margin-bottom:24px;
 }
+h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+}
 #content .section, .sidebar .section {
     padding: 0px;
 }
