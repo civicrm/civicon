@@ -122,6 +122,10 @@ p {
     width:100%;
 }
 
+tr td, tr th {
+    border: 5px solid #FFFFFF;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: Oswald;
     text-transform:uppercase;
@@ -153,7 +157,7 @@ display: none;
 }
 
 a {
-    color: #dc0069;
+    color: #1d6b9e;
 }
 #main {
     background-color:white;
@@ -177,6 +181,7 @@ a {
 }
 
 #footer-wrapper {
+    padding-top:1px;
     background-color: #343330;
     background-repeat:repeat-x;
     background-position:top;
