@@ -89,15 +89,15 @@ ul.nice-menu-down .menuparent a {
 
 #block-system-main-menu ul {
     text-align:center;
-    margin:5px;
-    padding:0px;
+    margin:0px;
+    padding:10px 0px;
 }
 #block-system-main-menu li {
     font-family:Oswald;
     display:inline-block;
     text-transform:uppercase;
-    margin:5px;
-    padding:0px 20px;
+    margin:0px 20px;
+    padding:0;
 }
 
 li a.active {
@@ -157,7 +157,7 @@ display: none;
 }
 
 a {
-    color: #1d6b9e;
+    color: #d60054;
 }
 #main {
     background-color:white;
@@ -173,7 +173,7 @@ a {
 }
 #featured div.section{
 
-    width: 830px;
+    width: 760px;
 }
 
 #footer {
