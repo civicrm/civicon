@@ -44,13 +44,13 @@
 #featured .section{
     background-color:white;
 }
-
+/*
 ul.nice-menu{
     padding:0px
 }
 
 ul.nice-menu-down li {
-    font-family: Oswald;
+    font-family: Oceswald;
     text-transform:uppercase;
     font-size: 20px;
     background-color: white;
@@ -79,10 +79,29 @@ ul.nice-menu-down li li {
 
 ul.nice-menu-down li.menuparent {
     background-color:white !important;
-}
+
 
 ul.nice-menu-down .menuparent a {
     padding-right: 20px;
+}
+
+*/
+
+#block-system-main-menu ul {
+    text-align:center;
+    margin:5px;
+    padding:0px;
+}
+#block-system-main-menu li {
+    font-family:Oswald;
+    display:inline-block;
+    text-transform:uppercase;
+    margin:5px;
+    padding:0px 20px;
+}
+
+li a.active {
+    color: #646360;
 }
 body{
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
@@ -97,6 +116,10 @@ p {
     font-size:15px;
     text-align:center;
 
+}
+
+.content table{
+    width:100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -167,6 +190,3 @@ a {
 
 
 
-.region-content ul, .region-content ol {
-    margin: 1em 7em;
-}
