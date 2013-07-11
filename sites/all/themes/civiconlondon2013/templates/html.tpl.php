@@ -52,7 +52,6 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <?php global $base_url;?>
-  <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
   <!--[if IE 7]>
   	<link rel="stylesheet" href="<?php print $base_url;?>/sites/all/themes/civiconsf2013/css/ie7.css" type="text/css" />
   <![endif]-->
