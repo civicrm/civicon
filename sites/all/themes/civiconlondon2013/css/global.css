@@ -53,6 +53,7 @@
 }
 #block-system-main-menu li a {
     text-decoration:none;
+    font-weight:normal;
 }
 #block-system-main-menu li {
     font-family:Oswald;
@@ -119,8 +120,10 @@ display: none;
 }
 
 a {
-    color: #d60054;
+    color: #36698E;
+    font-weight: bold;
 }
+
 #main {
     background-color:white;
     width:800px;
