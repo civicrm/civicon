@@ -98,12 +98,8 @@ h1#page-title {
     margin-top:2em;
     font-size:36px;
     color: #666666;
-/*    background-image: url('pink-stars.png');
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    padding-bottom:30px;
-    margin-bottom:40px;
-*/
+    text-transform:uppercase;
+
 }
 
 .front h1.title {
@@ -112,6 +108,11 @@ display: none;
 
 #content h2 {
     font-size:24px;
+    background-image: url('blue-stars.png');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    padding-bottom:20px;
+    margin-bottom:24px;
 }
 #content .section, .sidebar .section {
     padding: 0px;
@@ -139,6 +140,7 @@ a {
 
 #footer {
     border:none;
+    font-weight:bold;
 }
 
 #footer-wrapper {
