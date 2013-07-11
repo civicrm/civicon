@@ -86,8 +86,6 @@
  */
 ?>
 
-<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 
 
 <div id="page-wrapper"><div id="page">

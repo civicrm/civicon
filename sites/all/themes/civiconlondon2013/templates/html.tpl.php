@@ -52,17 +52,16 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <?php global $base_url;?>
-  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans+Caption">
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
   <!--[if IE 7]>
   	<link rel="stylesheet" href="<?php print $base_url;?>/sites/all/themes/civiconsf2013/css/ie7.css" type="text/css" />
   <![endif]-->
   <!--[if IE 8]>
   	<link rel="stylesheet" href="<?php print $base_url;?>/sites/all/themes/civiconsf2013/css/ie8.css" type="text/css" />
-  <![endif]-->  
+  <![endif]-->
   <!--[if IE 9]>
   	<link rel="stylesheet" href="<?php print $base_url;?>/sites/all/themes/civiconsf2013/css/ie9.css" type="text/css" />
-  <![endif]-->  
+  <![endif]-->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">

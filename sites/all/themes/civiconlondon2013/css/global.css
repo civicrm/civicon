@@ -86,7 +86,7 @@ ul.nice-menu-down .menuparent a {
 }
 body{
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-    color: #666666;
+    color: #646360;
     line-height:1.8em;
     /*    background-color:#e9f4fb; */
 }
@@ -123,13 +123,7 @@ display: none;
 }
 
 #content h2 {
-    padding:10px;
     font-size:24px;
-    background-image: url('green-stars.png');
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    padding-bottom:20px;
-    margin-bottom:20px;
 }
 #content .section, .sidebar .section {
     padding: 0px;
@@ -160,8 +154,7 @@ a {
 }
 
 #footer-wrapper {
-    background-image:url('header-gradient.png');
-    background-color: #77cc5e;
+    background-color: #343330;
     background-repeat:repeat-x;
     background-position:top;
 }
