@@ -63,6 +63,8 @@
   <![endif]-->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+  <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
