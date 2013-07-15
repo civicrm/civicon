@@ -62,6 +62,9 @@
     margin:0px 25px;
     padding:0;
 }
+#block-system-main-menu li a.active{
+    color:#646360;
+}
 #block-system-main-menu li a{
     color:#f68634; /*orange*/
     color:#36698E; /*blue*/
