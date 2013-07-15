@@ -62,10 +62,20 @@
     margin:0px 25px;
     padding:0;
 }
+#block-system-main-menu li a{
+    color:#f68634; /*orange*/
+    color:#36698E; /*blue*/
+}
+
+a {
+    color:#36698E; /*blue*/
+    font-weight: bold;
+}
 
 li a.active {
     color: #646360;
 }
+
 body{
     font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: #646360;
@@ -123,15 +133,10 @@ h3 {
     padding: 0px;
 }
 
-a {
-    color: #36698E;
-    font-weight: bold;
-}
-
 #main {
     background-color:white;
     width:800px;
-    margin-top:0;
+    margin:0 auto;
 }
 .no-sidebars #content {
     float: none;
@@ -148,6 +153,8 @@ a {
 #footer {
     border:none;
     font-weight:bold;
+    color:#eff7e7;
+    margin:0 auto;
 }
 
 #footer-wrapper {
