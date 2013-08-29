@@ -127,11 +127,10 @@ display: none;
 
 #content h2 {
     font-size:24px;
-    background-image: url('blue-stars.png');
+    background-image: url('gradient-divier.png');
     background-repeat:no-repeat;
     background-position:center bottom;
     padding-bottom:20px;
-    margin-bottom:24px;
 }
 h3 {
     font-size: 18px;
