@@ -100,6 +100,11 @@ p {
 
 tr td, tr th {
     border: 5px solid #FFFFFF;
+    text-align:center;
+}
+
+tr {
+    background-color:#fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
