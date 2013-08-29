@@ -130,7 +130,7 @@ display: none;
     background-image: url('gradient-divider.png');
     background-repeat:no-repeat;
     background-position:center bottom;
-    padding-bottom:22px;
+    padding-bottom:16px;
 }
 h3 {
     font-size: 18px;
