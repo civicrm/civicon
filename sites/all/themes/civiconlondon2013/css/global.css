@@ -184,3 +184,7 @@ h3 {
 .view-bronze-sponsors {
     font-size:22px;
 }
+
+.node-session p {
+    text-align:left;
+}
