@@ -133,17 +133,13 @@ function twitter_block_add_block_form_submit($form, &$form_state) {
 /**
  * Form constructor for the custom Twitter block deletion form.
  *
- * @param $module
- *   The name of the module that implements the block to be deleted. This
- *   should always equal 'twitter_block' since it only allows custom Twitter
- *   blocks to be deleted.
  * @param $delta
  *   The unique ID of the block within the context of $module.
  *
  * @see twitter_block_delete_submit()
  */
-function twitter_block_delete($form, &$form_state, $module, $delta) {
-  $block = block_load($module, $delta);
+function twitter_block_delete($form, &$form_state, $delta) {
+  $block = block_load('twitter_block', $delta);
   $twitter_block = twitter_block_block_get($block->delta);
   $form['info'] = array('#type' => 'hidden', '#value' => $twitter_block['info'] ? $twitter_block['info'] : $twitter_block['title']);
   $form['bid'] = array('#type' => 'hidden', '#value' => $block->delta);

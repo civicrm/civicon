@@ -18,7 +18,7 @@ function nice_menus_admin_settings($form, &$form_state) {
   $form['nice_menus_js'] = array(
     '#type' => 'checkbox',
     '#title' => t('Use JavaScript'),
-    '#description' => t('This will add Superfish Jquery to Nice menus. This is required for Nice menus to work properly in Internet Explorer.'),
+    '#description' => t('This will add Superfish jQuery to Nice menus. This is required for Nice menus to work properly in Internet Explorer.'),
     '#default_value' => variable_get('nice_menus_js', 1),
   );
   $form['nice_menus_sf_options'] = array(

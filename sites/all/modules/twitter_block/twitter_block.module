@@ -47,10 +47,10 @@ function twitter_block_menu() {
     }
   }
 
-  $items['admin/structure/block/administer/%/%/delete'] = array(
+  $items['admin/structure/block/administer/twitter_block/%/delete'] = array(
     'title' => 'Delete Twitter block',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('twitter_block_delete', 4, 5),
+    'page arguments' => array('twitter_block_delete', 5),
     'access arguments' => array('administer blocks'),
     'type' => MENU_CALLBACK,
     'file' => 'twitter_block.admin.inc',
@@ -243,7 +243,7 @@ function twitter_block_custom_block_form($edit = array()) {
     '#type' => 'select',
     '#title' => t('Tweet limit'),
     '#default_value' => $edit['tweet_limit'],
-    '#options' => drupal_map_assoc(range(1, 20)),
+    '#options' => array('' => t('Auto')) + drupal_map_assoc(range(1, 20)),
     '#description' => t('Fix the size of a timeline to a preset number of Tweets between 1 and 20. The timeline will render the specified number of Tweets from the timeline, expanding the height of the widget to display all Tweets without scrolling. Since the widget is of a fixed size, it will not poll for updates when using this option.'),
   );
   $form['size'] = array(
@@ -375,16 +375,6 @@ function twitter_block_block_view($delta) {
       'attributes' => array(
         'class' => array('twitter-timeline'),
         'data-widget-id' => $config['widget_id'],
-        'data-theme' => $data['theme'],
-        'data-link-color' => !empty($data['link_color']) ? '#' . $data['link_color'] : $data['link_color'],
-        'width' => $data['width'],
-        'height' => $data['height'],
-        'data-chrome' => !empty($data['chrome']) ? implode(' ', array_keys($data['chrome'])) : $data['chrome'],
-        'data-border-color' => !empty($data['border_color']) ? '#' . $data['border_color'] : $data['border_color'],
-        'lang' => $data['language'],
-        'data-tweet-limit' => $data['tweet_limit'],
-        'data-related' => $data['related'],
-        'aria-polite' => $data['polite'],
       ),
       'html' => FALSE,
     ),
@@ -396,6 +386,56 @@ function twitter_block_block_view($delta) {
       ),
     ),
   );
+
+  if (!empty($data['theme'])) {
+    $block['content']['#options']['attributes']['data-theme'] = $data['theme'];
+  }
+
+  if (!empty($data['link_color'])) {
+    $block['content']['#options']['attributes']['data-link-color'] = '#' . $data['link_color'];
+  }
+
+  if (!empty($data['width'])) {
+    $block['content']['#options']['attributes']['width'] = $data['width'];
+  }
+
+  if (!empty($data['height'])) {
+    $block['content']['#options']['attributes']['height'] = $data['height'];
+  }
+
+  if (!empty($data['chrome'])) {
+    $options = array();
+
+    foreach ($data['chrome'] as $option => $status) {
+      if ($status) {
+        $options[] = $option;
+      }
+    }
+
+    if (count($options)) {
+      $block['content']['#options']['attributes']['data-chrome'] = implode(' ', $options);
+    }
+  }
+
+  if (!empty($data['border_color'])) {
+    $block['content']['#options']['attributes']['data-border-color'] = '#' . $data['border_color'];
+  }
+
+  if (!empty($data['language'])) {
+    $block['content']['#options']['attributes']['lang'] = $data['language'];
+  }
+
+  if (!empty($data['tweet_limit'])) {
+    $block['content']['#options']['attributes']['data-tweet-limit'] = $data['tweet_limit'];
+  }
+
+  if (!empty($data['related'])) {
+    $block['content']['#options']['attributes']['data-related'] = $data['related'];
+  }
+
+  if (!empty($data['polite'])) {
+    $block['content']['#options']['attributes']['aria-polite'] = $data['polite'];
+  }
 
   return $block;
 }

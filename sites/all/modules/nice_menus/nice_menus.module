@@ -78,31 +78,6 @@ function nice_menus_menu() {
 }
 
 /**
- * Implements hook_init().
- *
- * We are adding the JavaScript and CSS here rather than theme_nice_menu
- * because when block caching is enabled none of it would get fired
- * and the menus are unstyled.
- */
-function nice_menus_init() {
-  // Add Superfish JavaScript, if enabled.
-  if (variable_get('nice_menus_js', 1) == 1) {
-    drupal_add_library('nice_menus', 'nice_menus');
-  }
-
-  // Add main CSS functionality.
-  drupal_add_css(drupal_get_path('module', 'nice_menus') . '/css/nice_menus.css', array('group' => CSS_DEFAULT, 'basename' => 'nice_menus.css'));
-  // Add custom CSS layout if specified.
-  if ($custom = variable_get('nice_menus_custom_css', '')) {
-    drupal_add_css($custom, array('group' => CSS_DEFAULT, 'basename' => '/css/nice_menus_custom.css'));
-  }
-  // Fall back to default layout.
-  else {
-    drupal_add_css(drupal_get_path('module', 'nice_menus') . '/css/nice_menus_default.css', array('group' => CSS_DEFAULT, 'basename' => '/css/nice_menus_default.css'));
-  }
-}
-
-/**
  * Implements hook_library().
  */
 function nice_menus_library() {
@@ -113,7 +88,7 @@ function nice_menus_library() {
     'website' => 'http://docs.jquery.com/Plugins/bgiframe',
     'version' => '2.1',
     'js' => array(
-      $module_path . '/js/jquery.bgiframe.min.js' => array(),
+      $module_path . '/js/jquery.bgiframe.js' => array(),
     ),
   );
 
@@ -123,7 +98,7 @@ function nice_menus_library() {
     'website' => 'http://cherne.net/brian/resources/jquery.hoverIntent.html',
     'version' => '0.5',
     'js' => array(
-      $module_path . '/js/jquery.hoverIntent.minified.js' => array(),
+      $module_path . '/js/jquery.hoverIntent.js' => array(),
     ),
   );
 
@@ -165,7 +140,95 @@ function nice_menus_library() {
     ),
   );
 
+  $jquery = drupal_get_library('system', 'jquery');
+  if (version_compare($jquery['version'], '1.7', '>=')) {
+    $plugins = array(
+      'jquery.hoverIntent' => array(
+        'js' => 'jquery.hoverIntent.js',
+        'version_pattern' => '@hoverIntent\s+(r[0-9]+)@i'
+      ),
+      'jquery.bgiframe' => array(
+        'js' => 'jquery.bgiframe.js',
+        'version_pattern' => '@version\s+([0-9a-zA-Z\.-]+)@i'
+      ),
+      'superfish' => array(
+        'js' => 'superfish.js',
+        'version_pattern' => '@Superfish\s(v[0-9\.-]+)@i'
+      )
+    );
+
+    // config libraries directory.
+    $searchdir = array(
+      'libraries/',
+      conf_path() . '/libraries/',
+      'profiles/' . drupal_get_profile() . '/libraries/',
+      'sites/all/libraries/'
+    );
+
+    foreach ($plugins as $plugin => $file_info) {
+
+      $libraries_file = NULL;
+
+      // check libraries module.
+      if (module_exists('libraries') && libraries_get_path($plugin) != '') {
+        $library_directory = libraries_get_path($plugin);
+        if (is_file(DRUPAL_ROOT . '/' . $library_directory . $plugin . '/' . $file_info['js'])) {
+          $libraries_file = $library_directory . $plugin . '/' . $file_info['js'];
+        }
+      }
+
+      // scan dir.
+      if ($libraries_file === NULL) {
+        foreach ($searchdir as $libraries_dir) {
+          if (is_file(DRUPAL_ROOT . '/' . $libraries_dir . $plugin . '/' . $file_info['js'])) {
+            $libraries_file = $libraries_dir . $plugin . '/' . $file_info['js'];
+            break;
+          }
+        }
+      }
+
+      // add to libraries.
+      if ($libraries_file !== NULL) {
+        $libraries[$plugin]['version'] = nice_menus_get_version($libraries_file, array(
+          'pattern' => $file_info['version_pattern']
+        ));
+        $libraries[$plugin]['js'] = array($libraries_file => array());
+      }
+    }
+  }
+
   return $libraries;
+}
+
+/**
+ * Gets the version information from an arbitrary library.
+ *
+ * @return
+ *   A string containing the version of the library.
+ */
+function nice_menus_get_version($file, $options = array()) {
+  // Provide defaults.
+  $options += array(
+    'file' => '',
+    'pattern' => '',
+    'lines' => 10,
+    'cols' => 200,
+  );
+
+  $file = DRUPAL_ROOT . '/' . $file;
+
+  if (!is_file($file)) {
+    return;
+  }
+  $file = fopen($file, 'r');
+  while ($options['lines'] && $line = fgets($file, $options['cols'])) {
+    if (preg_match($options['pattern'], $line, $version)) {
+      fclose($file);
+      return $version[1];
+    }
+    $options['lines']--;
+  }
+  fclose($file);
 }
 
 /**
@@ -277,6 +340,30 @@ function nice_menus_block_view($delta = 1) {
 }
 
 /**
+ * add nice_menus js library.
+ */
+function _load_nice_menus_library() {
+  static $is_load = FALSE;
+  if ($is_load === FALSE) {
+    // Add Superfish JavaScript, if enabled.
+    if (variable_get('nice_menus_js', 1) == 1) {
+      drupal_add_library('nice_menus', 'nice_menus');
+    }
+    // Add main CSS functionality.
+    drupal_add_css(drupal_get_path('module', 'nice_menus') . '/css/nice_menus.css', array('group' => CSS_DEFAULT, 'basename' => 'nice_menus.css'));
+    // Add custom CSS layout if specified.
+    if ($custom = variable_get('nice_menus_custom_css', '')) {
+      drupal_add_css($custom, array('group' => CSS_DEFAULT, 'basename' => '/css/nice_menus_custom.css'));
+    }
+    // Fall back to default layout.
+    else {
+      drupal_add_css(drupal_get_path('module', 'nice_menus') . '/css/nice_menus_default.css', array('group' => CSS_DEFAULT, 'basename' => '/css/nice_menus_default.css'));
+    }
+    $is_load = TRUE;
+  }
+}
+
+/**
  * Implements hook_theme().
  */
 function nice_menus_theme() {
@@ -346,6 +433,8 @@ function nice_menus_build_page_trail($page_menu) {
  *   An HTML string of properly nested Nice menu lists.
  */
 function theme_nice_menus_tree($variables) {
+  // load nice_menus js and css.
+  _load_nice_menus_library();
 
   /*
    * The top-level menu name that contains the menu to use (e.g. navigation
@@ -475,7 +564,7 @@ function theme_nice_menus_build($variables) {
       // Strip funny symbols.
       $class = drupal_html_class('menu-path-' . $class);
       if ($trail && in_array($mlid, $trail)) {
-        $class .= 'active-trail';
+        $class .= ' active-trail';
       }
       // If it has children build a nice little tree under it.
       // Build a nice little tree under it if it has children, and has been set

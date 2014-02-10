@@ -150,3 +150,9 @@ theme_nice_menus_secondary_menu() -- themes your secondary menu as a Nice menu.
 If you really know what you're doing, you can probably even customize the menu
 tree in creative ways, as those functions allow you to pass in a custom
 menu tree.
+
+nice_menus-7.x-2.4 support Upgrade included hoverIntent, jquery.bgiframe and 
+superfish plugin, requirement for jQuery 1.7+. download plugins to:
+site/all/libraries/jquery.hoverIntent/jquery.hoverIntent.js
+site/all/libraries/jquery.bgiframe/jquery.bgiframe.js
+site/all/libraries/superfish/superfish.js
