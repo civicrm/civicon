@@ -15,6 +15,9 @@ img#logo {
 .front #section-content {
 	margin-top: 130px;
 }
+.navigation {
+	padding: 54px 48px 0 0;
+}
 #zone-preface-wrapper {
 	background: #0B6186 url(images/logos-normal.png) no-repeat center center;
 }
@@ -27,11 +30,15 @@ img#logo {
 	width: auto;
 }
 /* back to smaller size ribbons */
-.gold .views-row {
+.gold .views-row,
+.lunch .views-row {
 	width: 130px;
 	margin: 0 12px;
 	background: url(images/gold-normal.png) no-repeat center bottom;
 	padding-bottom: 58px;
+}
+.lunch .views-row {
+	background-image: url(images/lunch-normal.png);
 }
 .silver .views-row {
 	width: 100px;
@@ -39,7 +46,8 @@ img#logo {
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 54px;
 }
-.gold .views-field-field-sponsor-logo {
+.gold .views-field-field-sponsor-logo,
+.lunch .views-field-field-sponsor-logo {
 	height: 110px;
 }
 .silver .views-field-field-sponsor-logo {
