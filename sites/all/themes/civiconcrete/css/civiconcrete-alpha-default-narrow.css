@@ -19,7 +19,7 @@
 	text-align: right;
 }
 .navigation {
-	padding: 54px 48px 0 0;
+	padding: 54px 0 0 0;
 }
 #main-menu li {
 	font-size: 1.4285em; /* 20px @ 14px */
@@ -92,11 +92,15 @@
 }
 
 /* bigger size ribbons */
-.gold .views-row {
+.gold .views-row,
+.lunch .views-row {
 	width: 170px;
 	margin: 0 15px;
 	background: url(images/gold-wide.png) no-repeat center bottom;
 	padding-bottom: 78px;
+}
+.lunch .views-row {
+	background-image: url(images/lunch-wide.png);
 }
 .silver .views-row {
 	width: 120px;
@@ -104,7 +108,8 @@
 	background: url(images/silver-wide.png) no-repeat center bottom;
 	padding-bottom: 64px;
 }
-.gold .views-field-field-sponsor-logo {
+.gold .views-field-field-sponsor-logo,
+.lunch .views-field-field-sponsor-logo {
 	height: 140px;
 }
 .silver .views-field-field-sponsor-logo {

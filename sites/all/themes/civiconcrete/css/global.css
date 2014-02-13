@@ -126,6 +126,9 @@ img#logo {
 	display: inline-block;
 	margin: 0.5em 0.5em 0 0;
 }
+#main-menu li.last {
+	margin-right: 0;
+}
 #main-menu a,
 #main-menu a:link,
 #main-menu a:visited,
@@ -243,19 +246,23 @@ img#logo {
 /* on all widths */
 .gold,
 .silver,
-.bronze {
+.bronze,
+.lunch {
 	overflow: hidden;
 	padding-top: 30px;
 }
 .gold .views-row,
 .silver .views-row,
-.bronze .views-row {
+.bronze .views-row,
+.lunch .views-row {
 	padding-top: 20px;
 }
-.bronze {
+.bronze,
+.lunch {
 	text-align: center;
 }
-.bronze .views-row {
+.bronze .views-row,
+.lunch .views-row {
 	display: inline-block;
 }
 .bronze .views-row h4 {
@@ -269,7 +276,8 @@ img#logo {
 	text-decoration: none;
 }
 .gold .view-content,
-.silver .view-content {
+.silver .view-content,
+.lunch .view-content {
 	overflow: hidden;
 }
 .views-field-field-sponsor-logo {
@@ -278,12 +286,17 @@ img#logo {
 }
 
 /* small size ribbons */
-.gold .views-row {
+.gold .views-row,
+.lunch .views-row {
 	width: 130px;
 	margin: 0 6px;
 	float: left;
-	background: url(images/gold-normal.png) no-repeat center bottom;
+	background: url(gold-normal.png) no-repeat center bottom;
 	padding-bottom: 58px;
+}
+.lunch .views-row {
+	float: none;
+	background-image: url(images/lunch-normal.png);
 }
 .silver .views-row {
 	width: 86px;
@@ -292,7 +305,8 @@ img#logo {
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 44px;
 }
-.gold .views-field-field-sponsor-logo {
+.gold .views-field-field-sponsor-logo,
+.lunch .views-field-field-sponsor-logo {
 	height: 140px;
 }
 .silver .views-field-field-sponsor-logo {
