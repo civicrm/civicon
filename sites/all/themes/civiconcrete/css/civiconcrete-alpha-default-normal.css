@@ -15,8 +15,13 @@ img#logo {
 .front #section-content {
 	margin-top: 130px;
 }
-.navigation {
+.navigation,
+.block-nice-menus {
 	padding: 54px 48px 0 0;
+}
+#main-menu li a,
+.nice-menu li a {
+	font-size: 1.4285em; /* 20px @ 14px */
 }
 #zone-preface-wrapper {
 	background: #0B6186 url(images/logos-normal.png) no-repeat center center;

@@ -115,37 +115,70 @@ img#logo {
 /*#region-menu {
 	line-height: 80px;
 }*/
-.navigation {
+.navigation,
+.block-nice-menus {
 	padding: 12px 48px 0 0;
 }
-#main-menu {
-	overflow: hidden;
+#main-menu,
+.nice-menu {
+	font-size: 0;
 }
-#main-menu li {
+#main-menu li,
+.nice-menu li {
 	padding: 0;
 	display: inline-block;
 	margin: 0.5em 0.5em 0 0;
+	font-size: 16px;
 }
-#main-menu li.last {
+#main-menu li.last,
+.nice-menu li.last {
 	margin-right: 0;
 }
 #main-menu a,
 #main-menu a:link,
 #main-menu a:visited,
-#main-menu a:hover {
+#main-menu a:hover,
+.nice-menu a,
+.nice-menu a:link,
+.nice-menu a:visited,
+.nice-menu a:hover {
 	color: #fff;
 	text-decoration: none;
 	padding: 0.25em 0.5em;
 }
 #main-menu a:hover,
-#main-menu a.active {
+#main-menu a.active,
+.nice-menu a:hover,
+.nice-menu a.active {
 	color: #72C6CA;
 }
-#main-menu li.menu-422 a {
+#main-menu li.menu-422 a,
+.nice-menu li.menu-422 a {
 	background-color: #72C6CA;
 }
-#main-menu li.menu-422 a:hover {
+#main-menu li.menu-422 a:hover,
+.nice-menu li.menu-422 a:hover {
 	background-color: #fff;
+}
+.nice-menu li ul {
+	border-bottom: 10px solid #444;
+	border-top: 10px solid #444;
+	top: 45px;
+}
+.nice-menu li ul li {
+	text-align: left;
+	font-size: 0.75em; /* 12px */
+	margin: 0;
+}
+.nice-menu li ul li a,
+.nice-menu li ul li a:link,
+.nice-menu li ul li a:visited {
+	background-color: #444;
+	color: #fff;
+	padding: 0.25em 0.66em;
+}
+.nice-menu li ul li a:hover {
+	color: #72C6CA
 }
 .twitter-icon {
 	position: absolute;
@@ -234,7 +267,7 @@ img#logo {
 	background-color: #0E526B;
 }
 #region-postscript {
-	display: inline-block; /* necessary to stop negative magrgin on .logo-postscript collapsing */
+	display: inline-block; 
 }
 .logo-postscript {
 	width: 180px;
@@ -285,6 +318,47 @@ img#logo {
 	background-color: #fff;
 }
 
+/* sessions */
+.node-session .field {
+	margin-bottom: 1em;
+}
+.sessions th,
+.node-session .field-label {
+	font-size: 1.2857em; /* 18px @ 14px */
+}
+.node-session .field-name-field-session-time .field-item,
+.node-session .field-name-field-role .field-item,
+.node-session .field-name-field-length .field-item {
+	padding: 6px 0 6px 36px;
+	font-weight: bold;
+	background: url(images/clock.png) no-repeat 0 center;
+}
+.node-session .field-name-field-role .field-item {
+	background-image: url(images/user.png);
+}
+.node-session .field-name-field-length .field-item {
+	background-image: url(images/speechbubble.png);
+}
+.sessions th,
+.sessions td {
+	padding: 10px 15px;
+}
+.sessions th,
+.sessions .views-field-title {
+	font-weight: bold;
+}
+.sessions tbody tr,
+.sessions tbody tr.even,
+.sessions tbody tr.odd {
+	background-color: transparent;
+	border-top: 2px solid #0E526B;
+	border-bottom: 0 none;
+}
+.view-sessions-per-day-room h3 {
+	margin-top: 2em;
+}
+
+
 /* small size ribbons */
 .gold .views-row,
 .lunch .views-row {
@@ -305,9 +379,11 @@ img#logo {
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 44px;
 }
-.gold .views-field-field-sponsor-logo,
+.gold .views-field-field-sponsor-logo {
+	height: 110px;
+}
 .lunch .views-field-field-sponsor-logo {
-	height: 140px;
+	height: 90px;
 }
 .silver .views-field-field-sponsor-logo {
 	height: 52px;
@@ -317,6 +393,10 @@ img#logo {
 /* Sponsor page */
 .node-sponsor .field {
 	margin-bottom: 1.6em;
+}
+
+.stButton {
+	margin-bottom: 0.5em;
 }
 /* FOOTER */
 #zone-footer-wrapper {
