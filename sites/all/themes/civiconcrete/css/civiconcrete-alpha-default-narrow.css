@@ -18,11 +18,13 @@
 #region-menu {
 	text-align: right;
 }
-.navigation {
+.navigation,
+.block-nice-menus{
 	padding: 54px 0 0 0;
 }
-#main-menu li {
-	font-size: 1.4285em; /* 20px @ 14px */
+#main-menu li a,
+.nice-menu li a {
+	font-size: 1.2857em; /* 18px @ 14px */
 }
 #zone-preface-wrapper {
 	background: #0B6186 url(images/logos-narrow.png) no-repeat center center;
@@ -108,9 +110,11 @@
 	background: url(images/silver-wide.png) no-repeat center bottom;
 	padding-bottom: 64px;
 }
-.gold .views-field-field-sponsor-logo,
-.lunch .views-field-field-sponsor-logo {
+.gold .views-field-field-sponsor-logo {
 	height: 140px;
+}
+.lunch .views-field-field-sponsor-logo {
+	height: 110px;
 }
 .silver .views-field-field-sponsor-logo {
 	height: 60px;
