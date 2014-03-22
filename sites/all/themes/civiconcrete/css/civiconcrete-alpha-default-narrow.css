@@ -37,7 +37,9 @@
 .front .node-page {
 	background: url(images/arrow-group.png) no-repeat center top;
 }
-/* QUOTES */
+
+
+/* quotes */
 #block-views-quotes-on-homepage-block-2 {
 	display: none;
 	visibility: hidden;
@@ -85,14 +87,9 @@
 	right: 0;
 	background: url(images/slide-right.png) no-repeat 0 0;
 }
-/* SPONSORS */
-/* limiting width to control number of ribbons per line - 3 gold, 4 silver */
-.gold .view-content,
-.silver .view-content {
-	margin: 0 auto;
-	width: 570px;
-}
 
+
+/* sponsors */
 /* bigger size ribbons */
 .gold .views-row,
 .lunch .views-row {

@@ -13,14 +13,14 @@
 	background: url(images/dude-75.png) repeat-x 0 bottom;
 	padding-bottom: 86px;
 }
-/* SPONSORS */
 
+
+/* sponsors */
 /* back to bigger size ribbons */
 .gold .views-row,
 .lunch .views-row {
 	width: 170px;
 	margin: 0 15px;
-	float: left;
 	background: url(images/gold-wide.png) no-repeat center bottom;
 	padding-bottom: 78px;
 }
@@ -31,7 +31,6 @@
 .silver .views-row {
 	width: 120px;
 	margin: 0 15px;
-	float: left;
 	background: url(images/silver-wide.png) no-repeat center bottom;
 	padding-bottom: 64px;
 }
