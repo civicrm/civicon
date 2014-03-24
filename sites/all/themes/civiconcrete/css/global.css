@@ -112,9 +112,6 @@ img#logo {
 	width: 224px;
 	height: 80px;
 }
-/*#region-menu {
-	line-height: 80px;
-}*/
 .navigation,
 .block-nice-menus {
 	padding: 12px 48px 0 0;
@@ -274,49 +271,7 @@ img#logo {
 	height: 187px;
 	margin: -156px auto 0;
 }
-/* SPONSORS */
-/* HP views */
-/* on all widths */
-.gold,
-.silver,
-.bronze,
-.lunch {
-	overflow: hidden;
-	padding-top: 30px;
-}
-.gold .views-row,
-.silver .views-row,
-.bronze .views-row,
-.lunch .views-row {
-	padding-top: 20px;
-}
-.bronze,
-.lunch {
-	text-align: center;
-}
-.bronze .views-row,
-.lunch .views-row {
-	display: inline-block;
-}
-.bronze .views-row h4 {
-	margin-right: 12px;
-}
-.bronze .views-row h4 a {
-	padding-left: 26px;
-	background: url(images/bronze.png) no-repeat left center;
-	display: inline-block;
-	color: #fff;
-	text-decoration: none;
-}
-.gold .view-content,
-.silver .view-content,
-.lunch .view-content {
-	overflow: hidden;
-}
-.views-field-field-sponsor-logo {
-	padding: 20px 10px 0 10px;
-	background-color: #fff;
-}
+
 
 /* sessions */
 .node-session .field {
@@ -339,6 +294,10 @@ img#logo {
 .node-session .field-name-field-length .field-item {
 	background-image: url(images/speechbubble.png);
 }
+.field-name-field-speakers, .field-item {
+	margin-right: 10px;
+	line-height: 2em;
+}
 .sessions th,
 .sessions td {
 	padding: 10px 15px;
@@ -358,24 +317,58 @@ img#logo {
 	margin-top: 2em;
 }
 
+/* sponsor ribbons */
+/* on all widths */
+.gold,
+.lunch,
+.silver,
+.bronze {
+	overflow: hidden;
+	padding-top: 30px;
+	text-align: center;
+}
+.gold,
+.lunch,
+.silver {
+	font-size: 0;
+}
+.gold .views-row,
+.lunch .views-row,
+.silver .views-row,
+.bronze .views-row {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 20px;
+}
+.views-field-field-sponsor-logo {
+	padding: 20px 10px 0 10px;
+	background-color: #fff;
+}
+.bronze .views-row h4 {
+	margin-right: 12px;
+}
+.bronze .views-row h4 a {
+	padding-left: 26px;
+	background: url(images/bronze.png) no-repeat left center;
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+}
 
 /* small size ribbons */
 .gold .views-row,
 .lunch .views-row {
 	width: 130px;
 	margin: 0 6px;
-	float: left;
 	background: url(images/gold-normal.png) no-repeat center bottom;
 	padding-bottom: 58px;
 }
 .lunch .views-row {
-	float: none;
 	background-image: url(images/lunch-normal.png);
 }
 .silver .views-row {
 	width: 86px;
 	margin: 0 4px;
-	float: left;
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 44px;
 }
@@ -390,15 +383,15 @@ img#logo {
 	padding: 10px 5px 0 5px;
 }
 
-/* Sponsor page */
+/* sponsor page */
 .node-sponsor .field {
 	margin-bottom: 1.6em;
 }
-
 .stButton {
 	margin-bottom: 0.5em;
 }
-/* FOOTER */
+
+/* footer */
 #zone-footer-wrapper {
 	background-color: #444;
 	padding: 40px 0;

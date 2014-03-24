@@ -6,9 +6,6 @@ img#logo {
 	width: 280px;
 	height: 100px;
 }
-/*#region-menu {
-	line-height: 100px;
-}*/
 #section-content {
 	margin-top: 160px;
 }
@@ -27,13 +24,7 @@ img#logo {
 	background: #0B6186 url(images/logos-normal.png) no-repeat center center;
 }
 
-/* SPONSORS */
-
-/* removing fixed with again, since these line up prefectly */
-.gold .view-content,
-.silver .view-content {
-	width: auto;
-}
+/* sponsors */
 /* back to smaller size ribbons */
 .gold .views-row,
 .lunch .views-row {
@@ -60,7 +51,7 @@ img#logo {
 	padding: 10px 5px 0 5px;
 }
 
-/* taking off relevant margins to keep ribbon rows centered */
+/* taking off relevant margins to keep ribbon rows centered (margin styles above override ones in narrow.css) */
 .gold .views-row-last,
 .silver .views-row-last {
 	margin-right: 0;
