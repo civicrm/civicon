@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Browscap Block module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function browscap_block_schema() {
+
+  $schema['browscap_block'] = array(
+    'description' => 'Sets up display criteria for blocks based on device detection',
+    'fields' => array(
+      'module' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => "The block's origin module, from {block}.module.",
+      ),
+      'delta' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'description' => "The block's unique delta within module, from {block}.delta.",
+      ),
+      'ismobile' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'Hide or show blocks in mobile devices. (1 = hide, 0 = show)',
+      ),
+    ),
+    'primary key' => array('module', 'delta', 'ismobile'),
+    'indexes' => array(
+      'ismobile' => array('ismobile'),
+    ),
+  );
+
+  return $schema;
+}

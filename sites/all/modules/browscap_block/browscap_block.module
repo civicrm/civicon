@@ -1,0 +1,112 @@
+<?php
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * @see block_add_block_form()
+ */
+function browscap_block_form_block_add_block_form_alter(&$form, &$form_state) {
+  browscap_block_form_block_admin_configure_alter($form, $form_state);
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * Adds mobile specific visibility options to block configuration form.
+ * @see block_admin_configure()
+ */
+function browscap_block_form_block_admin_configure_alter(&$form, &$form_state) {
+  $result = db_query("SELECT ismobile FROM {browscap_block} WHERE module = :module AND delta = :delta", array(
+    ':module' => $form['module']['#value'],
+    ':delta' => $form['delta']['#value'],
+  ))->fetchCol();
+
+  $default_value = 0;
+  if (!empty($result)) {
+    $default_value = $result[0];
+  }
+
+  $form['visibility']['browscap_block'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Is Mobile'),
+    '#group' => 'visibility',
+    '#weight' => 6,
+    '#tree' => true,
+    '#attached' => array(
+      'js' => array(drupal_get_path('module', 'browscap_block') . '/browscap_block.js'),
+    ),
+  );
+  $form['visibility']['browscap_block']['ismobile'] = array(
+    '#type' => 'radios',
+    '#title' => t('Hide or show this block in mobile devices'),
+    '#default_value' => $default_value,
+    '#options' => array(
+      0 => t('Not restricted'),
+      1 => t('Hide in mobile'),
+      2 => t('Show in mobile only'),
+    ),
+  );
+
+  $form['#submit'][] = 'browscap_block_form_block_admin_configure_submit';
+}
+
+/**
+ * Form submit handler for block configuration form.
+ * @see browscap_block_form_block_admin_configure_alter()
+ */
+function browscap_block_form_block_admin_configure_submit($form, &$form_state) {
+  db_delete('browscap_block')
+    ->condition('module', $form_state['values']['module'])
+    ->condition('delta', $form_state['values']['delta'])
+    ->execute();
+  $query = db_insert('browscap_block')->fields(array('ismobile', 'module', 'delta'));
+  $query->values(array(
+    'ismobile' => $form_state['values']['browscap_block']['ismobile'],
+    'module' => $form_state['values']['module'],
+    'delta' => $form_state['values']['delta'],
+  ));
+  $query->execute();
+}
+
+/**
+ * Implements hook_block_list_alter().
+ * Check the mobile device specific visibilty settings.
+ * Remove the block if the visibility conditions are not met.
+ */
+function browscap_block_block_list_alter(&$blocks) {
+  global $theme_key;
+
+  $browser = browscap_get_browser();
+  if ($browser['ismobiledevice'] == 1) {
+    $is_mobile = TRUE;
+  }
+  else {
+    $is_mobile = FALSE;
+  }
+
+  $browscap_block = array();
+  $result = db_query('SELECT module, delta, ismobile FROM {browscap_block}');
+  foreach ($result as $record) {
+    $browscap_block[$record->module][$record->delta] = (int) $record->ismobile;
+  }
+
+  foreach ($blocks as $key => $block) {
+    if (!isset($block->theme) || !isset($block->status) || $block->theme != $theme_key || $block->status != 1) {
+      // This block was added by a contrib module, leave it in the list.
+      continue;
+    }
+
+    foreach ($browscap_block as $module => $delta) {
+      if ($module == $block->module) {
+        foreach ($delta as $delta_key => $delta_value) {
+          if ($delta_key == $block->delta) {
+            if ($delta_value == 2 && $is_mobile == FALSE) {
+              unset($blocks[$key]);
+            }
+            if ($delta_value == 1 && $is_mobile == TRUE) {
+              unset($blocks[$key]);
+            }
+          }
+        }
+      }
+    }
+  }
+}
