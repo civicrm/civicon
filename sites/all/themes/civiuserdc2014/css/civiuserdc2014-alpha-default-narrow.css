@@ -15,6 +15,11 @@
 .front #section-content {
 	margin-top: 130px;
 }
+
+.front .node-page h1 {
+  margin: 0 -10em;
+}
+
 #region-menu {
 	text-align: right;
 }
