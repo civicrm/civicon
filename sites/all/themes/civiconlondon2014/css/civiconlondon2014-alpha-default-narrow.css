@@ -1,0 +1,133 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal 
+ *  and widescreen CSS files as appropriate. */
+
+#page {
+	margin: 0;
+}
+.region-inner {
+	padding: 0;
+}
+#section-content {
+	margin-top: 140px;
+}
+.front #section-content {
+	margin-top: 110px;
+}
+#region-menu {
+	text-align: right;
+}
+.navigation,
+.block-nice-menus{
+	padding: 54px 0 0 0;
+}
+#main-menu li a,
+.nice-menu li a {
+	font-size: 1.2857em; /* 18px @ 14px */
+}
+#zone-preface-wrapper {
+	background: #0B6186 url(images/logos-narrow.png) no-repeat center center;
+	padding: 60px 0 0 0;
+}
+#zone-preface {
+	background: url(images/dude-60.png) repeat-x 0 bottom;
+	padding-bottom: 70px;
+}
+.front .node-page {
+	background: url(images/arrow-group.png) no-repeat center top;
+}
+
+
+/* quotes */
+#block-views-quotes-on-homepage-block-2 {
+	display: none;
+	visibility: hidden;
+}
+#block-views-quotes-on-homepage-block {
+	display: block;
+	visibility: visible;
+	width: 600px;
+	margin: 30px auto;
+	position: relative;
+}
+#views_slideshow_cycle_teaser_section_quotes_on_homepage-block {
+	width: 465px;
+	height: 348px;
+	background: url(images/quote-bubble.png) no-repeat 0 0;
+	margin: 0 auto;
+}
+.views_slideshow_slide {
+	margin: 25px;
+}
+.quote strong {
+	width: 270px;
+	float: right;
+	font-size: 1.2857em; /* 18px @ 14px */
+}
+.views-slideshow-controls-text-pause {
+	display: none;
+	visibility: hidden;
+} 
+.views-slideshow-controls-text-previous,
+.views-slideshow-controls-text-next {
+	display: block;
+	position: absolute;
+	top: 35%;
+	width: 23px;
+	height: 39px;
+	font-size: 0;
+	line-height: 0;
+}
+.views-slideshow-controls-text-previous {
+	left: 0;
+	background: url(images/slide-left.png) no-repeat 0 0;
+}
+.views-slideshow-controls-text-next {
+	right: 0;
+	background: url(images/slide-right.png) no-repeat 0 0;
+}
+
+
+/* sponsors */
+/* bigger size ribbons */
+.gold .views-row,
+.lunch .views-row {
+	width: 170px;
+	margin: 0 15px;
+	background: url(images/gold-wide.png) no-repeat center bottom;
+	padding-bottom: 78px;
+}
+.lunch .views-row {
+	background-image: url(images/lunch-wide.png);
+}
+.silver .views-row {
+	width: 120px;
+	margin: 0 15px;
+	background: url(images/silver-wide.png) no-repeat center bottom;
+	padding-bottom: 64px;
+}
+.gold .views-field-field-sponsor-logo {
+	height: 140px;
+}
+.lunch .views-field-field-sponsor-logo {
+	height: 110px;
+}
+.silver .views-field-field-sponsor-logo {
+	height: 60px;
+	padding-top: 10px;
+}
+
+/* taking off relevant margins to keep ribbon rows centered */
+.gold .views-row-last,
+.silver .views-row-last,
+.gold .views-row-3,
+.silver .views-row-4 {
+	margin-right: 0;
+}
+.gold .views-row-first,
+.silver .views-row-first,
+.gold .views-row-4,
+.silver .views-row-5 {
+	margin-left: 0;
+}
