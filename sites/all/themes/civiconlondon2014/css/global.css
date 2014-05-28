@@ -153,6 +153,9 @@ img#logo {
 .nice-menu li.menu-655 a {
 	background-color: #AA2430;
 }
+.nice-menu li.menu-655 a.active {
+	color: #fff;
+}
 #main-menu li.menu-655 a:hover,
 .nice-menu li.menu-655 a:hover {
 	background-color: #fff;
