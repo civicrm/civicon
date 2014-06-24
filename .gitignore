@@ -4,3 +4,7 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+# Ignoring any (since local development sites at http://### link ###.civicrm.org to ###)
+sites/*.civicrm.org
+
