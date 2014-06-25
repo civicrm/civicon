@@ -44,7 +44,8 @@
 	display: none;
 	visibility: hidden;
 }
-#block-views-quotes-on-homepage-block {
+#block-views-quotes-on-homepage-block,
+.hp-video {
 	display: block;
 	visibility: visible;
 	width: 600px;
@@ -87,7 +88,17 @@
 	right: 0;
 	background: url(images/slide-right.png) no-repeat 0 0;
 }
-
+.hp-video .view-content {
+	border: 4px solid #72C6CA;
+}
+.hp-video .view-footer {
+	text-align: right;
+}
+.hp-video .view-footer a,
+.hp-video .view-footer a:link,
+.hp-video .view-footer a:visited {
+	color: #fff;
+}
 
 /* sponsors */
 /* bigger size ribbons */
