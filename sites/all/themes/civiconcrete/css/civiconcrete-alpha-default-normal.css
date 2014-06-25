@@ -23,7 +23,9 @@ img#logo {
 #zone-preface-wrapper {
 	background: #0B6186 url(images/logos-normal.png) no-repeat center center;
 }
-
+.views-field-field-hp-video {
+	width: 70%;
+}
 /* sponsors */
 /* back to smaller size ribbons */
 .gold .views-row,

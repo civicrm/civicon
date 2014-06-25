@@ -231,6 +231,9 @@ img#logo {
 #block-views-quotes-on-homepage-block-2 .block-inner {
 	padding: 15px;	
 }
+.views-field-field-hp-video {
+	margin-bottom: 2em;
+}
 .quote {
 	overflow: hidden;
 	vertical-align: top;
@@ -246,6 +249,9 @@ img#logo {
 }
 .quote strong p {
 	margin: 0;
+}
+.hp-video iframe {
+	margin: 0 auto;
 }
 .front h1#page-title {
 	display: none;

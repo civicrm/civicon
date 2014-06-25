@@ -2,7 +2,7 @@
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
 
-/****   This year's colour: #e02536   ****/
+/****   This year's colour: #72C6CA   ****/
 
 body {
 	font-size: 14px;
@@ -26,7 +26,7 @@ h3, h2.block-title {
 	font-size: 1.4285em; /* 20px @ 14px */
 }
 a, a:link, a:visited {
-	color: #e02536;
+	color: #72C6CA;
 	text-decoration: none;
 }
 a:hover {
@@ -147,17 +147,17 @@ img#logo {
 #main-menu a.active,
 .nice-menu a:hover,
 .nice-menu a.active {
-	color: #e02536;
+	color: #72C6CA;
 }
 #main-menu li.menu-655 a,
 .nice-menu li.menu-655 a {
-	background-color: #e02536;
+	background-color: #72C6CA;
 }
 .nice-menu li.menu-655 a.active {
 	color: #fff;
 }
 .nice-menu li.menu-655 a.active:hover {
-	color: #e02536;
+	color: #72C6CA;
 }
 #main-menu li.menu-655 a:hover,
 .nice-menu li.menu-655 a:hover {
@@ -181,7 +181,7 @@ img#logo {
 	padding: 0.25em 0.66em;
 }
 .nice-menu li ul li a:hover {
-	color: #e02536
+	color: #72C6CA
 }
 .twitter-icon {
 	position: absolute;
@@ -228,7 +228,7 @@ img#logo {
 	width: 90%;
 	margin: 20px 5%;
 	background-color: #fff;
-	border: 5px solid #e02536;
+	border: 5px solid #72C6CA;
 	-moz-border-radius: 30px;
 	-webkit-border-radius: 30px;
 	border-radius: 30px; 
@@ -419,7 +419,7 @@ img#logo {
 }
 .footer-info .content a:hover,
 .footer-lower .content a:hover {
-	color: #e02536;
+	color: #72C6CA;
 }
 .footer-right {
 	text-align: right;
@@ -435,7 +435,7 @@ img#logo {
 	-webkit-border-radius: 30px;
 	border-radius: 30px; 
 	-khtml-border-radius: 30px;
-	border: 5px solid #e02536;	
+	border: 5px solid #72C6CA;	
 	text-align: center;
 	font-weight: normal;
 	background-color: #444;
@@ -444,16 +444,16 @@ img#logo {
 .footer-right .btn,
 .footer-right .btn:link,
 .footer-right .btn:visited {
-	background-color: #e02536;
+	background-color: #72C6CA;
 	border-color: #fff;
 	margin: 0;
 }
 .btn:hover {
-	background-color: #e02536;
+	background-color: #72C6CA;
 	border-color: #444;
 }
 .footer-right .btn:hover {
-	border-color: #e02536;
+	border-color: #72C6CA;
 	background-color: #fff;
 	color: #444;
 }
