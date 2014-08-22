@@ -59,7 +59,7 @@
 	margin: 0 auto;
 }
 .views_slideshow_slide {
-	margin: 25px;
+	margin: 25px 40px 5px 40px;
 }
 .quote strong {
 	width: 270px;
@@ -112,7 +112,8 @@
 .lunch .views-row {
 	background-image: url(images/lunch-wide.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 120px;
 	margin: 0 15px;
 	background: url(images/silver-wide.png) no-repeat center bottom;
@@ -124,7 +125,8 @@
 .lunch .views-field-field-sponsor-logo {
 	height: 110px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 60px;
 	padding-top: 10px;
 }
