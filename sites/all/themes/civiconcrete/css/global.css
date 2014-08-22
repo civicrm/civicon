@@ -382,6 +382,9 @@ img#logo {
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 44px;
 }
+.party .views-row {
+	background-image: url(images/party-normal.png);
+}
 .gold .views-field-field-sponsor-logo {
 	height: 110px;
 }
