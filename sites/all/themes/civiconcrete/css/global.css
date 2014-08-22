@@ -328,6 +328,7 @@ img#logo {
 .gold,
 .lunch,
 .silver,
+.party,
 .bronze {
 	overflow: hidden;
 	padding-top: 30px;
@@ -335,12 +336,14 @@ img#logo {
 }
 .gold,
 .lunch,
-.silver {
+.silver,
+.party {
 	font-size: 0;
 }
 .gold .views-row,
 .lunch .views-row,
 .silver .views-row,
+.party .views-row,
 .bronze .views-row {
 	display: inline-block;
 	vertical-align: top;
@@ -372,7 +375,8 @@ img#logo {
 .lunch .views-row {
 	background-image: url(images/lunch-normal.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 86px;
 	margin: 0 4px;
 	background: url(images/silver-normal.png) no-repeat center bottom;
@@ -384,7 +388,8 @@ img#logo {
 .lunch .views-field-field-sponsor-logo {
 	height: 90px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 52px;
 	padding: 10px 5px 0 5px;
 }

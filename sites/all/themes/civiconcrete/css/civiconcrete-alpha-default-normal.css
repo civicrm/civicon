@@ -38,7 +38,8 @@ img#logo {
 .lunch .views-row {
 	background-image: url(images/lunch-normal.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 100px;
 	margin: 0 10px;
 	background: url(images/silver-normal.png) no-repeat center bottom;
@@ -48,7 +49,8 @@ img#logo {
 .lunch .views-field-field-sponsor-logo {
 	height: 110px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 52px;
 	padding: 10px 5px 0 5px;
 }
