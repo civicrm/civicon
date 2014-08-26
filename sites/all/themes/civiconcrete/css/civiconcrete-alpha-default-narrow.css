@@ -44,7 +44,8 @@
 	display: none;
 	visibility: hidden;
 }
-#block-views-quotes-on-homepage-block {
+#block-views-quotes-on-homepage-block,
+.hp-video {
 	display: block;
 	visibility: visible;
 	width: 600px;
@@ -58,7 +59,7 @@
 	margin: 0 auto;
 }
 .views_slideshow_slide {
-	margin: 25px;
+	margin: 25px 40px 5px 40px;
 }
 .quote strong {
 	width: 270px;
@@ -87,7 +88,17 @@
 	right: 0;
 	background: url(images/slide-right.png) no-repeat 0 0;
 }
-
+.hp-video .view-content {
+	border: 4px solid #72C6CA;
+}
+.hp-video .view-footer {
+	text-align: right;
+}
+.hp-video .view-footer a,
+.hp-video .view-footer a:link,
+.hp-video .view-footer a:visited {
+	color: #fff;
+}
 
 /* sponsors */
 /* bigger size ribbons */
@@ -101,11 +112,15 @@
 .lunch .views-row {
 	background-image: url(images/lunch-wide.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 120px;
 	margin: 0 15px;
 	background: url(images/silver-wide.png) no-repeat center bottom;
 	padding-bottom: 64px;
+}
+.party .views-row {
+	background-image: url(images/party-wide.png);
 }
 .gold .views-field-field-sponsor-logo {
 	height: 140px;
@@ -113,7 +128,8 @@
 .lunch .views-field-field-sponsor-logo {
 	height: 110px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 60px;
 	padding-top: 10px;
 }

@@ -23,7 +23,9 @@ img#logo {
 #zone-preface-wrapper {
 	background: #0B6186 url(images/logos-normal.png) no-repeat center center;
 }
-
+.views-field-field-hp-video {
+	width: 70%;
+}
 /* sponsors */
 /* back to smaller size ribbons */
 .gold .views-row,
@@ -36,17 +38,22 @@ img#logo {
 .lunch .views-row {
 	background-image: url(images/lunch-normal.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 100px;
 	margin: 0 10px;
 	background: url(images/silver-normal.png) no-repeat center bottom;
 	padding-bottom: 54px;
 }
+.party .views-row {
+	background-image: url(images/party-normal.png);
+}
 .gold .views-field-field-sponsor-logo,
 .lunch .views-field-field-sponsor-logo {
 	height: 110px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 52px;
 	padding: 10px 5px 0 5px;
 }

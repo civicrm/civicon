@@ -28,16 +28,21 @@
 	float: none;
 	background-image: url(images/lunch-wide.png);
 }
-.silver .views-row {
+.silver .views-row,
+.party .views-row {
 	width: 120px;
 	margin: 0 15px;
 	background: url(images/silver-wide.png) no-repeat center bottom;
 	padding-bottom: 64px;
 }
+.party .views-row {
+	background-image: url(images/party-wide.png);
+}
 .gold .views-field-field-sponsor-logo {
 	height: 140px;
 }
-.silver .views-field-field-sponsor-logo {
+.silver .views-field-field-sponsor-logo,
+.party .views-field-field-sponsor-logo {
 	height: 60px;
 	padding-top: 10px;
 }
