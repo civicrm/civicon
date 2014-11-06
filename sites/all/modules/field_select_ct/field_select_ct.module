@@ -29,6 +29,8 @@ function field_select_ct_field_info() {
       'settings' => array('allowed_values' => array(), 'allowed_values_function' => ''),
       'default_widget' => 'options_select',
       'default_formatter' => 'list_default',
+      // Entity API Property Support
+      'property_type' => 'text',
     ),
   );
 }

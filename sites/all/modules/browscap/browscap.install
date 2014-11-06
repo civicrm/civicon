@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements hook_install().
+ * Implements hook_schema().
  */
 function browscap_schema() {
   $schema['browscap'] = array(
@@ -32,10 +32,10 @@ function browscap_schema() {
  * Implements hook_install().
  */
 function browscap_install() {
-  // Update the browscap information
+  // Update the browscap information.
   _browscap_import();
 
-  // Record when the browscap information was updated
+  // Record when the browscap information was updated.
   variable_set('browscap_imported', REQUEST_TIME);
 }
 
