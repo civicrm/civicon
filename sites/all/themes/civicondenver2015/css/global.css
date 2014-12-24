@@ -38,8 +38,7 @@ h2, h2.block-title {
     font-size: 2em;
 }
 /* Links */
-a, a:link,
-element.style {
+a, a:link, a:visited {
 	color: #479ada;
 	text-decoration: none;
 }
@@ -276,23 +275,36 @@ img#logo {
 /* Zones */
 
 
-/* Home page */
+/* Home page (and footer text)  */
 
-.front p {
+.front p, #region-footer-first p {
 	text-align: center;
 	font-size: 24px; /* 22px @ 14px */
 }
 
 .front h1, .front h2{
-	text-align: center;
+    text-align: center;
 }
 
-#region-postscript {
-	display: inline-block; 
+.view-quotes-on-homepage p {
+    text-align: left;
+}
+
+.view-quotes-on-homepage .views-field-field-headshot {
+}
+
+.view-quotes-on-homepage .views-field-field-name-and-job-title {
+    font-weight: bold;
+    float: right;
+}
+
+.view-quotes-on-homepage .views-field-body {
+    float: right;
 }
 
 
 /* sessions */
+
 .node-session .field {
 	margin-bottom: 1em;
 }
