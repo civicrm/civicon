@@ -33,6 +33,7 @@ zones[postscript] = 'Postscript'
 css[global.css][name] = 'Your custom global styles'
 css[global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
 css[global.css][options][weight] = '10'
+
 settings[alpha_grid] = 'alpha_default'
 settings[alpha_primary_alpha_default] = 'normal'
 settings[alpha_responsive] = '1'
@@ -347,3 +348,7 @@ settings[alpha_region_footer_second_suffix] = ''
 settings[alpha_region_footer_second_weight] = '2'
 settings[alpha_region_footer_second_css] = ''
 version = '1.x'
+
+
+fonts[google_fonts_api][] = "Raleway&subset=latin#regular"
+fonts[google_fonts_api][] = "Sansita One&subset=latin#regular"
