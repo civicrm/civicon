@@ -294,13 +294,9 @@ img#logo {
 }
 
 .view-quotes-on-homepage .views-field-field-name-and-job-title {
-    font-weight: bold;
     float: right;
 }
 
-.view-quotes-on-homepage .views-field-body {
-    float: right;
-}
 
 
 /* sessions */
