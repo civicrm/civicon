@@ -481,3 +481,7 @@ img#logo {
 	line-height: 1;
 	text-align: center;
 }
+.menu-normal {
+    display: none;
+    visibility: hidden;
+}

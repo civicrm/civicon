@@ -1,1 +1,9 @@
 /* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+.menu-normal {
+    display: block;
+    visibility: visible;
+}
+.menu-mobile {
+    display: none;
+    visibility: hidden;
+}
