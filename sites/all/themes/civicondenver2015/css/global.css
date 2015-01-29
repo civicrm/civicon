@@ -164,6 +164,7 @@ ul.nice-menu a:link {
 .nice-menu a:hover,
 .nice-menu a.active {
 	color: #479ada;
+    padding: 5px 0px;
 }
 
 
