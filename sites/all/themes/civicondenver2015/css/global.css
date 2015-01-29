@@ -24,18 +24,24 @@ h2.block-title{
     letter-spacing: -0.025em;
 }
 h1#page-title {
-	font-size: 4em; /* 42px @ 14px */
+	font-size: 3em; /* 42px @ 14px */
 	color: #4b2a88;
 }
 h2, h2.block-title {
-	font-size: 2.5em; /* 42px @ 14px */
+	font-size: 2em; /* 42px @ 14px */
+}
+
+.front p.date {
+    font-family: "Sansita One";
+    font-size: 2.5em;
+    color: #479ada;
 }
 
 .region-sidebar {
     margin-top: 60px;
 }
 .region-sidebar h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 /* Links */
 a, a:link, a:visited {
@@ -159,20 +165,19 @@ ul.nice-menu a:link {
 .nice-menu a.active {
 	color: #479ada;
 }
-#main-menu li.menu-655 a,
-.nice-menu li.menu-655 a {
-	background-color: #eae6e2;
+
+
+.nice-menu li.last {
+	background-color: #479ada;
 }
-.nice-menu li.menu-655 a.active {
+
+.nice-menu li.last a {
+	color: white;
+}
+.nice-menu li.last a:hover {
 	color: #4b2a88;
 }
-.nice-menu li.menu-655 a.active:hover {
-	color: #4b2a88;
-}
-#main-menu li.menu-655 a:hover,
-.nice-menu li.menu-655 a:hover {
-	background-color: #4b2a88;
-}
+
 .nice-menu li ul {
     border: 1px solid #eae6e2;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -212,7 +217,6 @@ table td {
 #region-content ul,
 #region-content ol {
 	list-style: disc outside none;
-	margin: 1em 0 1.2em 0;
 	padding-left: 2em;
 }
 #region-content ol {
