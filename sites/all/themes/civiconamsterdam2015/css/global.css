@@ -1,0 +1,448 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+
+/* Text */
+
+body {
+	font-size: 16px;
+	line-height: 1.4;
+	color: #4d4d4d;
+	font-family: Raleway;
+}
+p {
+	margin: 0.8em 0;
+}
+
+/* Titles */
+
+h1, h2, h3, h4,
+h2.block-title{
+	margin-bottom: 0.5em;
+    font-family: "Lato";
+	color: #f5932f;
+    margin: 0.6em 0 0.3em;
+    letter-spacing: -0.025em;
+}
+h1#page-title {
+	font-size: 3em; /* 42px @ 14px */
+	color: #f5932f;
+}
+h2, h2.block-title {
+	font-size: 2em; /* 42px @ 14px */
+}
+
+.front p.date {
+    font-family: "Lato";
+    font-size: 2.5em;
+    color: #ef2735;
+}
+
+.region-sidebar {
+    margin-top: 60px;
+}
+.region-sidebar h2 {
+    font-size: 1.5em;
+}
+/* Links */
+a, a:link, a:visited {
+	color: #ef2735;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Blocks */
+
+.block{
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+/* Normal pages */
+
+.block-system-main{
+    margin-top: 0;
+}
+
+/* Zones */
+
+/* Header */
+
+#zone-branding-wrapper {
+    background-color: #eae6e2;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 888;
+    width: 100%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Make it fixed */
+
+html body{
+    margin-top:140px;
+}
+html body.admin-menu{
+    margin-top:169px !important; /* need to add the height of the admin menu */
+}
+
+.admin-menu #zone-branding-wrapper {
+    top: 29px;
+}
+
+/* Branding */
+
+#zone-preface-wrapper {
+    background-color: #fff;
+}
+
+.branding-data{
+    float: left;
+}
+
+/* Preface */
+
+#zone-preface-wrapper {
+    background-color: #ef2735;
+}
+
+#zone-preface-wrapper p {
+    color: #fff;
+}
+/* Postscript */
+#zone-postscript-wrapper {
+	background-color: #f5932f;
+}
+#zone-postscript h2, zone-postscript p {
+	color: #eae6e2;
+    text-align: center;
+}
+
+#zone-footer-wrapper {
+	background-color: #eae6e2;
+    text-align: center;
+}
+/* Menu */
+
+.block-nice-menus {
+    float: right;
+    font-family: "Lato";
+    font-size: 24px;
+    margin: 0;
+}
+
+ul.nice-menu-down li.menuparent, 
+ul.nice-menu-down li.menuparent:hover,
+ul.nice-menu-down li {
+    background: #eae6e2;
+}
+
+ul.nice-menu-down li {
+    border-color: #eae6e2;
+}
+
+ul.nice-menu a:link {
+    text-decoration: none;
+}
+
+.nice-menu li.last {
+	margin-right: 0;
+}
+.nice-menu a,
+.nice-menu a:link,
+.nice-menu a:visited,
+.nice-menu a:hover {
+	color: #f5932f;
+	text-decoration: none;
+	padding: 0 0.5em;
+}
+
+.nice-menu a:hover,
+.nice-menu a.active {
+	color: #ef2735;
+}
+
+
+.nice-menu li.last {
+	background-color: #ef2735;
+}
+
+.nice-menu li.last a {
+	color: white;
+}
+.nice-menu li.last a:hover {
+	color: #f5932f;
+}
+
+.nice-menu li ul {
+    border: 1px solid #eae6e2;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    top: 45px;
+}
+.nice-menu li ul li {
+	text-align: left;
+	font-size: 0.75em; /* 12px */
+	margin: 0;
+}
+.nice-menu li ul li a,
+.nice-menu li ul li a:link,
+.nice-menu li ul li a:visited {
+	background-color: #eae6e2;
+	color: #ef2735;
+	padding: 0.25em 0.66em;
+}
+.nice-menu li ul li a:hover {
+	color: #f5932f;
+}
+
+
+/* Tables */
+
+table {
+	width: 100%;
+    border-width: 0px;
+}
+table td {
+	padding: 0.75em;
+	background-color: #eae6e2;
+	border: 0px solid #fff;
+	border-top: 10px solid #fff;
+    vertical-align: top;
+}
+
+#region-content ul,
+#region-content ol {
+	list-style: disc outside none;
+	padding-left: 2em;
+}
+#region-content ol {
+	list-style: decimal outside none;
+}
+#region-content li {
+	margin: 0.25em 0;
+}
+#region-content .vertical-tabs ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#region-content .vertical-tabs li {
+	margin: 0;
+}
+div.vertical-tabs {
+	margin: 1em;
+}
+
+
+
+
+.element-invisible,
+h1.site-name, 
+h6.site-slogan {
+	margin: 0;
+	display: none;
+}
+h1.site-name a {
+	display: none;
+	visibility: hidden;
+}
+
+.logo-img a,
+img#logo {
+	display: block;
+}
+
+img#logo {
+	width: 400px;
+	height: 100px;
+}
+
+
+/* Twitter */
+.twitter-icon {
+	position: absolute;
+	top: 5px;
+	right: 0;
+}
+.twitter-icon p {
+	margin: 0;
+}
+.twitter-icon .content a,
+.twitter-icon img {
+	display: block;
+}
+
+/* Zones */
+
+
+/* Home page (and footer text)  */
+
+.front p, #region-footer-first p {
+	text-align: center;
+	font-size: 24px; /* 22px @ 14px */
+}
+
+.front h1, .front h2{
+    text-align: center;
+}
+
+.view-quotes-on-homepage p {
+    text-align: left;
+}
+
+.view-quotes-on-homepage .views-field-field-headshot {
+}
+
+.view-quotes-on-homepage .views-field-field-name-and-job-title {
+    float: right;
+}
+
+
+
+/* sessions */
+
+.node-session .field {
+	margin-bottom: 1em;
+}
+.sessions th,
+.node-session .field-label {
+	font-size: 1.2857em; /* 18px @ 14px */
+}
+.node-session .field-name-field-session-time .field-item,
+.node-session .field-name-field-role .field-item,
+.node-session .field-name-field-length .field-item {
+	padding: 6px 0 6px 36px;
+	font-weight: bold;
+	background: url(images/clock.png) no-repeat 0 center;
+}
+.node-session .field-name-field-role .field-item {
+	background-image: url(images/user.png);
+}
+.node-session .field-name-field-length .field-item {
+	background-image: url(images/speechbubble.png);
+}
+.sessions th,
+.sessions td {
+	padding: 10px 15px;
+}
+.sessions th,
+.sessions .views-field-title {
+	font-weight: bold;
+}
+.sessions tbody tr,
+.sessions tbody tr.even,
+.sessions tbody tr.odd {
+	background-color: transparent;
+	border-top: 2px solid #0E526B;
+	border-bottom: 0 none;
+}
+.view-sessions-per-day-room h3 {
+	margin-top: 2em;
+}
+
+/* sponsor ribbons */
+/* on all widths */
+.gold,
+.lunch,
+.silver,
+.bronze {
+	overflow: hidden;
+	text-align: center;
+}
+.gold,
+.lunch,
+.silver {
+	font-size: 0;
+}
+.gold .views-row,
+.lunch .views-row,
+.silver .views-row,
+.bronze .views-row {
+	display: inline-block;
+	vertical-align: top;
+}
+.views-field-field-sponsor-logo {
+	padding: 20px 10px 0 10px;
+	background-color: #fff;
+}
+.bronze .views-row h4 {
+	margin-right: 12px;
+}
+.bronze .views-row h4 a {
+	padding-left: 26px;
+	background: url(images/bronze.png) no-repeat left center;
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* small size ribbons */
+.gold .views-row,
+.lunch .views-row {
+	width: 130px;
+	margin: 0 6px;
+	background: url(images/gold-normal.png) no-repeat center bottom;
+	padding-bottom: 58px;
+}
+.lunch .views-row {
+	background-image: url(images/lunch-normal.png);
+}
+.silver .views-row {
+	width: 86px;
+	margin: 0 4px;
+	background: url(images/silver-normal.png) no-repeat center bottom;
+	padding-bottom: 44px;
+}
+.gold .views-field-field-sponsor-logo {
+	height: 110px;
+}
+.lunch .views-field-field-sponsor-logo {
+	height: 90px;
+}
+.silver .views-field-field-sponsor-logo {
+	height: 52px;
+	padding: 10px 5px 0 5px;
+}
+
+/* sponsor page */
+.node-sponsor .field {
+	margin-bottom: 1.6em;
+}
+.stButton {
+	margin-bottom: 0.5em;
+}
+
+
+/* Register now button */
+
+.btn, .btn:link,
+.btn:visited {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: "Lato";
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    font-weight: normal;
+    background-color: #444;
+    line-height: 1em;
+}
+.btn,
+.btn:link,
+.btn:visited {
+    background-color: #ef2735;
+}
+.btn:hover {
+    background-color: #f5932f;
+}
+
+#region-sidebar .block {
+	margin-bottom: 2em;
+}
+
