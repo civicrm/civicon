@@ -18,7 +18,7 @@ p {
 h1, h2, h3, h4,
 h2.block-title{
 	margin-bottom: 0.5em;
-    font-family: "Lato";
+    font-family: "Sansita One";
 	color: #f5932f;
     margin: 0.6em 0 0.3em;
     letter-spacing: -0.025em;
@@ -32,9 +32,9 @@ h2, h2.block-title {
 }
 
 .front p.date {
-    font-family: "Lato";
+    font-family: "Sansita One";
     font-size: 2.5em;
-    color: #ef2735;
+    color: #463a3a;
 }
 
 .region-sidebar {
@@ -45,7 +45,7 @@ h2, h2.block-title {
 }
 /* Links */
 a, a:link, a:visited {
-	color: #ef2735;
+	color: #463a3a;
 	text-decoration: none;
 }
 a:hover {
@@ -107,7 +107,7 @@ html body.admin-menu{
 /* Preface */
 
 #zone-preface-wrapper {
-    background-color: #ef2735;
+    background-color: #463a3a;
 }
 
 #zone-preface-wrapper p {
@@ -130,7 +130,7 @@ html body.admin-menu{
 
 .block-nice-menus {
     float: right;
-    font-family: "Lato";
+    font-family: "Sansita One";
     font-size: 24px;
     margin: 0;
 }
@@ -163,12 +163,12 @@ ul.nice-menu a:link {
 
 .nice-menu a:hover,
 .nice-menu a.active {
-	color: #ef2735;
+	color: #463a3a;
 }
 
 
 .nice-menu li.last {
-	background-color: #ef2735;
+	background-color: #463a3a;
 }
 
 .nice-menu li.last a {
@@ -192,7 +192,7 @@ ul.nice-menu a:link {
 .nice-menu li ul li a:link,
 .nice-menu li ul li a:visited {
 	background-color: #eae6e2;
-	color: #ef2735;
+	color: #463a3a;
 	padding: 0.25em 0.66em;
 }
 .nice-menu li ul li a:hover {
@@ -257,8 +257,6 @@ img#logo {
 }
 
 img#logo {
-	width: 400px;
-	height: 100px;
 }
 
 
@@ -424,7 +422,7 @@ img#logo {
     color: #fff;
     text-decoration: none;
     font-size: 2em;
-    font-family: "Lato";
+    font-family: "Sansita One";
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     display: inline-block;
     padding: 20px;
@@ -436,7 +434,7 @@ img#logo {
 .btn,
 .btn:link,
 .btn:visited {
-    background-color: #ef2735;
+    background-color: #463a3a;
 }
 .btn:hover {
     background-color: #f5932f;
