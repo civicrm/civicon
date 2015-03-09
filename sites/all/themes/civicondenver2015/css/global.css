@@ -383,8 +383,8 @@ img#logo {
 /* small size ribbons */
 .gold .views-row,
 .lunch .views-row {
-	width: 130px;
-	margin: 0 6px;
+	width: 120px;
+	margin: 0 5px;
 	background: url(images/gold-normal.png) no-repeat center bottom;
 	padding-bottom: 58px;
 }
