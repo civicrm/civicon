@@ -96,9 +96,6 @@ html body.admin-menu{
 
 /* Branding */
 
-#zone-preface-wrapper {
-    background-color: #fff;
-}
 
 .branding-data{
     float: left;
@@ -112,6 +109,12 @@ html body.admin-menu{
 
 #zone-preface-wrapper p {
     color: #fff;
+}
+
+
+.zone-preface-wrapper a {
+    color: #4b2a88;
+    font-weight: bold;
 }
 /* Postscript */
 #zone-postscript-wrapper {
