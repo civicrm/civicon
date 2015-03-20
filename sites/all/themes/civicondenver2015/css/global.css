@@ -297,13 +297,16 @@ img#logo {
     text-align: left;
 }
 
-.view-quotes-on-homepage .views-field-field-headshot {
+.view-quotes-on-homepage {
+    background: url("../images/open-quote.png") left no-repeat,
+                url("../images/close-quote.png") right no-repeat;
 }
 
-.view-quotes-on-homepage .views-field-field-name-and-job-title {
+.quote-photo {
     float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
-
 
 
 /* sessions */
