@@ -49,6 +49,7 @@ class TwitterBlockTestCase extends DrupalWebTestCase {
     $twitter_block['info'] = $this->randomName(8);
     $twitter_block['title'] = $this->randomName(8);
     $twitter_block['widget_id'] = $this->randomName(8);
+    $twitter_block['username'] = $this->randomName(8);
     $this->drupalPost('admin/structure/block/add-twitter-block', $twitter_block, t('Save block'));
 
     // Confirm that the custom Twitter block has been created, and then query the created bid.

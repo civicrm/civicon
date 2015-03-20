@@ -201,7 +201,7 @@ function reference_option_limit_get_referred_entity_bundle($field) {
  * And since those form elements don't exist yet, we can't set up the ajax
  * on them either.
  * We instead get our settings and stash them in the $form_state for
- * hook_form_alter() to find and act on.
+ * hook_field_attach_form() to find and act on.
  */
 function reference_option_limit_field_widget_form_alter(&$element, &$form_state, $context) {
   // Do nothing when this is being shown for defaults in the field settings.
@@ -252,14 +252,12 @@ function reference_option_limit_field_widget_form_alter(&$element, &$form_state,
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_field_attach_form().
  *
- * This is rather graceless, as it acts on all forms. We sniff out the settings
- * we left in hook_field_widget_form_alter() and use them to alter other
- * elements in the entity form.
- * @todo: figure out if there is a nicer way to do this.
+ * We sniff out the settings we left in hook_field_widget_form_alter()
+ * and use them to alter other elements in the entity form.
  */
-function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
+function reference_option_limit_field_attach_form($entity_type, $entity, &$form, &$form_state, $langcode) {
   // Check that the form is one we need to act on.
   if (!isset($form_state['reference_option_limit'])) {
     return;
@@ -267,9 +265,41 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
 
   // If we are on an AJAX call, check that it's one that concerns us.
   if (!empty($form_state['triggering_element'])) {
-    if (empty($form_state['triggering_element']['#field_name'])) {
-      // The AJAX button has nothing to do with any field. Therefore it's of
-      // no concern to us: bail.
+    // Determine whether the triggering element is part of a field widget, and
+    // if so which one.
+    $triggering_element_parents = $form_state['triggering_element']['#parents'];
+    // Because we're using hook_field_attach_form(), we possibly don't have the
+    // complete form as the $form parameter, as it can be the case that the
+    // entity fields are attached to a sub-element of the entire form (this
+    // happens with Profile2 module, for example).
+    // In this case, we need to trim path elements off the front of the
+    // '#parents' array. We don't need to match them up (and indeed we shouldn't
+    // use array_intersect() or array_diff() because there may be repeated path
+    // components) as it suffices to remove the count of '#field_parents'
+    // elements from the front of '#parents'.
+    if (isset($form_state['triggering_element']['#field_parents'])) {
+      $triggering_element_parents = array_slice($triggering_element_parents, count($form_state['triggering_element']['#field_parents']));
+    }
+
+    // Work up the triggering element's parents in the form and see if one of
+    // them is the main form element for a field.
+    $triggering_element_field_name = NULL;
+    while ($triggering_element_parents) {
+      $element = drupal_array_get_nested_value($form, $triggering_element_parents);
+
+      if (isset($element['#field_name'])) {
+        // We've found the main form element for a field: we're done.
+        $triggering_element_field_name = $element['#field_name'];
+        break;
+      }
+
+      // Go one up in the parents array.
+      array_pop($triggering_element_parents);
+    }
+
+    if (empty($triggering_element_field_name)) {
+      // We found no field name, so the AJAX button has nothing to do with any
+      // field and it's of no concern to us: bail.
       return;
     }
 
@@ -278,14 +308,26 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
     $match = FALSE;
     // Check each limited field to see if the AJAX trigger is one of its
     // matching fields.
-    foreach ($form_state['reference_option_limit'] as $field) {
+    foreach ($form_state['reference_option_limit'] as $field_name => $settings) {
       // Try to find triggering element field name in the list of matching
       // fields.
       if (in_array(
-            $form_state['triggering_element']['#field_name'],
-            $field['fields_match']
+            $triggering_element_field_name,
+            $settings['fields_match']
           )) {
         $match = TRUE;
+
+        // Store the path of the form element we're limiting for our AJAX
+        // callback to return. This saves the callback from repeating the work
+        // we've just done here.
+        // We are however too early in the form build process for the
+        // '#array_parents' property to have been set, so we have to build
+        // this ourselves: the path is the '#field_parents' with the field
+        // name appended.
+        $form_path = $settings['field_parents'];
+        $form_path[] = $field_name;
+        $form_state['reference_option_limit_ajax_return'] = $form_path;
+
         break;
       }
     }
@@ -297,6 +339,23 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
   //dsm($form, 'hfa form');
   //dsm($form_state, 'hfa fs');
 
+  // There are three cases:
+  // - A. Fresh form with an existing entity.
+  // - B. Fresh form with a new entity.
+  // - C. AJAXing with form values.
+
+  // For case C, we have form values coming in and we need to get hold of them
+  // to match on. The simplest way to do this is to build an entity from them,
+  // as though the form were being submitted for saving. This allows FieldAPI to
+  // handle the job of extracting values from the field form elements, which it
+  // can do better than us as it delegates to field type modules as needed.
+  if (isset($form_state['values'])) {
+    entity_form_submit_build_entity($entity_type, $entity, $form, $form_state);
+  }
+
+  // Get the entity ID to distinguish between cases A and B.
+  list($id) = entity_extract_ids($entity_type, $entity);
+
   // For each field to work on.
   foreach ($form_state['reference_option_limit'] as $settings) {
     // Get the current field name, info, and instance.
@@ -305,9 +364,7 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
     $field_instance_option_limited = field_info_instance($settings['entity_type'], $field_name_option_limited, $settings['entity_bundle']);
 
     // Get the form element to act on.
-    $parents = $settings['field_parents'];
-    $parents[] = $field_name_option_limited;
-    $element_limited =& drupal_array_get_nested_value($form, $parents);
+    $element_limited =& $form[$field_name_option_limited];
 
     // Add a wrapper div to the limited field for the ajax to work on.
     $settings['ajax_wrapper'] = 'reference-options-limit-' . str_replace('_', '-', $field_name_option_limited);
@@ -321,7 +378,7 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
     foreach ($settings['fields_match'] as $field_name_matching) {
       $parents = $settings['field_parents'];
       $parents[] = $field_name_matching;
-      $element_matching =& drupal_array_get_nested_value($form, $parents);
+      $element_matching =& $form[$field_name_matching];
       // Make each matchable field ajaxy so its changes cause the limited
       // field to update itself.
 
@@ -346,32 +403,31 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
 
       // Build an array of field values to match on. This is keyed first by
       // field name, and then by delta (or with default values, whatever).
-      // First time around these are in default values; in ajax calls these are in $form_state.
-      if (isset($form_state['values'])) {
+      // Where we get these from depends on the current situation.
+      $match_values[$field_name_matching] = array();
+      if (isset($form_state['values']) || !empty($id)) {
+        // This is either:
+        //  - a form AJAX call: field values are in the $form_state, and our
+        //    earlier call to entity_form_submit_build_entity() has spoofed them
+        //    into the entity.
+        //  - a fresh form for an existing entity.
+        //  In both cases, we can read the values off the entity.
+        $values_field_matching = field_get_items($entity_type, $entity, $field_name_matching);
+
         // @todo: Figure out what on earth should happen when we have more than one column!
         $column = $match_columns[$field_name_matching][0];
-        $values_field_matching = drupal_array_get_nested_value($form_state['values'], $parents);
 
-        foreach ($values_field_matching[LANGUAGE_NONE] as $delta => $item) {
+        foreach ($values_field_matching as $delta => $item) {
           $match_values[$field_name_matching][$delta] = $item[$column];
         }
       }
       else {
-        // Urgh, for taxonomy term reference fields the default value is an
-        // array!
-        // @todo: other field types probably have other quirks :(
-        if (is_array($element_matching[LANGUAGE_NONE]['#default_value'])) {
-          $default_value_array = $element_matching[LANGUAGE_NONE]['#default_value'];
-          if (count($default_value_array)) {
-            $match_values[$field_name_matching][] = $default_value_array;
-          }
-          else {
-            $match_values[$field_name_matching] = array();
-          }
-        }
-        else {
-          $match_values[$field_name_matching][] = $element_matching[LANGUAGE_NONE]['#default_value'];
-        }
+        // This is an initial build of the form for a new entity.
+        // Rather than look at the default values in the form, where different
+        // widgets will have different array structures, get the default value
+        // directly from the field instance, where it will be in a standard
+        // form.
+        $match_values[$field_name_matching] = field_get_default_value($settings['entity_type'], $entity, $field_info_matching, $field_instance_matching);
       }
     }
     //dsm($match_values, 'mv');
@@ -518,67 +574,16 @@ function reference_option_limit_get_match_columns($field) {
  * Ajax callback for the updated term reference field.
  */
 function reference_option_limit_js($form, $form_state) {
-  // Deduce the field the triggering element belongs to.
-  // @todo: not sure how robust this is.
-
-  // Field matching is the penultimate item of the parents array.
-  $count = count($form_state['triggering_element']['#parents']);
-  $delta = $count - 2;
-  $field_name_triggering = $form_state['triggering_element']['#parents'][$delta];
-
-  // Find which option limited field we should be returning the element for.
-  // @todo: I have no idea how to make this work if the triggering field affects
-  // more than one option limited field!
-  foreach ($form_state['reference_option_limit'] as $settings) {
-    if (isset($settings['fields_match'][$field_name_triggering])) {
-      $field_name_dependent = $settings['field'];
-      // @todo - limited to only one parent !
-      if (isset($settings['field_parents'][0])) {
-        $field_parent = $settings['field_parents'][0];
-      }
-    }
-  }
+  // We stored the path of the form element we need to return earlier on.
+  $form_return_element = drupal_array_get_nested_value($form, $form_state['reference_option_limit_ajax_return']);
 
   if ($messages = theme('status_messages')) {
-    if (isset($field_parent)) {
-      $form[$field_parent][$field_name_dependent]['messages'] = array(
-        '#markup' => '<div class="views-messages">' . $messages . '</div>',
-      );
-    }
-    else {
-      $form[$field_name_dependent]['messages'] = array(
-        '#markup' => '<div class="views-messages">' . $messages . '</div>',
-      );
-    }
+    $form_return_element['messages'] = array(
+      '#markup' => '<div class="views-messages">' . $messages . '</div>',
+    );
   }
 
-  if (isset($field_parent)) {
-    return $form[$field_parent][$field_name_dependent];
-  }
-  else {
-    return $form[$field_name_dependent];
-  }
-}
-
-/**
- * Helper to get the names of fields have instances set to limited options.
- *
- * @return
- *  An array of field names.
- */
-function reference_option_get_entity_option_limited_fields() {
-  $option_limited_fields = array();
-  $field_instances = field_info_instances();
-  foreach ($field_instances as $entity_type => $type_bundles) {
-    foreach ($type_bundles as $bundle => $bundle_instances) {
-      foreach ($bundle_instances as $field_name => $instance) {
-        if (!empty($instance['options_limit'])) {
-          $option_limited_fields[$field_name] = $field_name;
-        }
-      }
-    }
-  }
-  return $option_limited_fields;
+  return $form_return_element;
 }
 
 /**
@@ -603,22 +608,6 @@ function reference_option_get_entity_option_limited_instances($entity_type, $fie
   //dsm($option_limited_instances);
 
   return $option_limited_instances;
-}
-
-/**
- * Implements hook_module_implements_alter().
- */
-function reference_option_limit_module_implements_alter(&$implementations, $hook) {
-  if ($hook == 'form_alter') {
-    // Move our hook_form_alter() to the end of the list, so any other modules
-    // that change forms can act first.
-    // This will allow hook_form_FORM_ID_alter() to act first too, because both
-    // form alter hooks are invoked as part of the same call to drupal_alter(),
-    // and thus are treated here as a single group with the base hook name.
-    $group = $implementations['reference_option_limit'];
-    unset($implementations['reference_option_limit']);
-    $implementations['reference_option_limit'] = $group;
-  }
 }
 
 /**

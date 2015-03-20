@@ -89,7 +89,10 @@ function reference_option_limit_test_entityreference_install() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'type' => 'entityreference_entity_id',
+        'type' => 'entityreference_label',
+        'settings' => array(
+          'link' => FALSE,
+        ),
       ),
     ),
   );
@@ -108,7 +111,10 @@ function reference_option_limit_test_entityreference_install() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'type' => 'entityreference_entity_id',
+        'type' => 'entityreference_label',
+        'settings' => array(
+          'link' => FALSE,
+        ),
       ),
     ),
   );
@@ -155,7 +161,10 @@ function reference_option_limit_test_entityreference_install() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'type' => 'entityreference_entity_id',
+        'type' => 'entityreference_label',
+        'settings' => array(
+          'link' => FALSE,
+        ),
       ),
     ),
   );

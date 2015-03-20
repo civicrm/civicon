@@ -32,6 +32,13 @@ function twitter_block_schema() {
         'default' => '',
         'description' => 'Widget ID.',
       ),
+      'username' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Account username.',
+      ),
       'data' => array(
         'type' => 'blob',
         'size' => 'big',
@@ -54,7 +61,7 @@ function twitter_block_schema() {
  * Implements hook_uninstall().
  */
 function twitter_block_uninstall() {
-  // Remove blocks
+  // Remove blocks.
   db_delete('block')
     ->condition('module', 'twitter_block')
     ->execute();
@@ -62,7 +69,14 @@ function twitter_block_uninstall() {
     ->condition('module', 'twitter_block')
     ->execute();
 
-  // Clear the site cache
+  // Remove variables.
+  variable_del('twitter_block_cache');
+  variable_del('twitter_block_last_cache');
+
+  // Remove the cache directory.
+  twitter_block_clear_js_cache();
+
+  // Clear the site cache.
   cache_clear_all();
 }
 
@@ -70,10 +84,10 @@ function twitter_block_uninstall() {
  * Remove any old Twitter Block blocks and install the new Twitter Block schema.
  */
 function twitter_block_update_7200() {
-  // Remove old Twitter Block schema
+  // Remove old Twitter Block schema.
   drupal_uninstall_schema('twitter_block');
 
-  // Remove any old Twitter Block blocks
+  // Remove any old Twitter Block blocks.
   db_delete('block')
     ->condition('module', 'twitter_block')
     ->execute();
@@ -81,11 +95,24 @@ function twitter_block_update_7200() {
     ->condition('module', 'twitter_block')
     ->execute();
 
-  // Clear the site cache
+  // Clear the site cache.
   cache_clear_all();
 
-  // Install the new Twitter Block schema
+  // Install the new Twitter Block schema.
   drupal_install_schema('twitter_block');
 
   return t('Removed any old Twitter Block blocks and installed the new Twitter Block schema.');
+}
+
+/**
+ * Add a column to the {twitter_block} table to store the Twitter account username.
+ */
+function twitter_block_update_7201() {
+  db_add_field('twitter_block', 'username', array(
+    'type' => 'varchar',
+    'length' => 128,
+    'not null' => TRUE,
+    'default' => '',
+    'description' => 'Account username.',
+  ));
 }

@@ -17,11 +17,11 @@ function twitter_block_add_block_form($form, &$form_state) {
   $form = block_admin_configure($form, $form_state, 'twitter_block', NULL);
 
   // Other modules should be able to use hook_form_block_add_block_form_alter()
-  // to modify this form, so add a base form ID
+  // to modify this form, so add a base form ID.
   $form_state['build_info']['base_form_id'] = 'block_add_block_form';
 
   // Prevent block_add_block_form_validate/submit() from being automatically
-  // added because of the base form ID by providing these handlers manually
+  // added because of the base form ID by providing these handlers manually.
   $form['#validate'] = array('twitter_block_add_block_form_validate');
   $form['#submit'] = array('twitter_block_add_block_form_submit');
 
@@ -71,19 +71,20 @@ function twitter_block_add_block_form_submit($form, &$form_state) {
     'polite' => $form_state['values']['polite'],
   );
 
-  // Save the block configuration
+  // Save the block configuration.
   $delta = db_insert('twitter_block')
     ->fields(array(
       'info' => $form_state['values']['info'],
       'widget_id' => $form_state['values']['widget_id'],
+      'username' => $form_state['values']['username'],
       'data' => serialize($data),
     ))
     ->execute();
 
-  // Store block delta to allow other modules to work with new block
+  // Store block delta to allow other modules to work with new block.
   $form_state['values']['delta'] = $delta;
 
-  // Run the normal new block submission (borrowed from block_add_block_form_submit)
+  // Run the normal new block submission (borrowed from block_add_block_form_submit).
   $query = db_insert('block')->fields(array('visibility', 'pages', 'custom', 'title', 'module', 'theme', 'status', 'weight', 'delta', 'cache'));
   foreach (list_themes() as $key => $theme) {
     if ($theme->status) {
@@ -113,7 +114,7 @@ function twitter_block_add_block_form_submit($form, &$form_state) {
   }
   $query->execute();
 
-  // Store regions per theme for this block
+  // Store regions per theme for this block.
   foreach ($form_state['values']['regions'] as $theme => $region) {
     db_merge('block')
       ->key(array('theme' => $theme, 'delta' => $delta, 'module' => $form_state['values']['module']))

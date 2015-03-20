@@ -56,6 +56,27 @@ function reference_option_limit_views_data_alter(&$data) {
 }
 
 /**
+ * Helper to get the names of fields have instances set to limited options.
+ *
+ * @return
+ *  An array of field names.
+ */
+function reference_option_get_entity_option_limited_fields() {
+  $option_limited_fields = array();
+  $field_instances = field_info_instances();
+  foreach ($field_instances as $entity_type => $type_bundles) {
+    foreach ($type_bundles as $bundle => $bundle_instances) {
+      foreach ($bundle_instances as $field_name => $instance) {
+        if (!empty($instance['options_limit'])) {
+          $option_limited_fields[$field_name] = $field_name;
+        }
+      }
+    }
+  }
+  return $option_limited_fields;
+}
+
+/**
  * Helper to get the options for a Views filter handler's matching fields.
  *
  * Returns a list of filter and argument handlers on the view that can be used

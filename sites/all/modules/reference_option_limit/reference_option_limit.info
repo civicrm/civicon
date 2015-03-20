@@ -10,9 +10,9 @@ files[] = tests/reference_option_limit.test
 test_dependencies[] = entityreference
 test_dependencies[] = profile2
 
-; Information added by Drupal.org packaging script on 2015-01-31
-version = "7.x-1.5"
+; Information added by Drupal.org packaging script on 2015-03-06
+version = "7.x-1.6"
 core = "7.x"
 project = "reference_option_limit"
-datestamp = "1422710886"
+datestamp = "1425657182"
 

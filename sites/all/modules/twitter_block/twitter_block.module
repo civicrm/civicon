@@ -6,6 +6,20 @@
  */
 
 /**
+ * Implements hook_cron().
+ */
+function twitter_block_cron() {
+  // Regenerate the JavaScript file every day.
+  if (REQUEST_TIME - variable_get('twitter_block_last_cache', 0) >= 86400 && variable_get('twitter_block_cache', TRUE)) {
+    // Synchronize the widget code and update it if remote file have changed.
+    twitter_block_cache(TRUE);
+
+    // Record when the synchronization occurred.
+    variable_set('twitter_block_last_cache', REQUEST_TIME);
+  }
+}
+
+/**
  * Implements hook_help().
  */
 function twitter_block_help($path, $arg) {
@@ -19,7 +33,7 @@ function twitter_block_help($path, $arg) {
  * Implements hook_menu().
  */
 function twitter_block_menu() {
-  // Create an array of block settings
+  // Create an array of block settings.
   $settings = array(
     'title' => 'Add Twitter block',
     'description' => 'Add a new Twitter block.',
@@ -29,15 +43,15 @@ function twitter_block_menu() {
     'file' => 'twitter_block.admin.inc',
   );
 
-  // Add a local action to the block configuration page
+  // Add a local action to the block configuration page.
   $items['admin/structure/block/add-twitter-block'] = array(
     'access arguments' => array('administer blocks'),
   ) + $settings;
 
-  // Get the default site theme
+  // Get the default site theme.
   $default_theme = variable_get('theme_default', 'bartik');
 
-  // Add a local action to the per-theme block configuration pages
+  // Add a local action to the per-theme block configuration pages.
   foreach (list_themes() as $key => $theme) {
     if ($key != $default_theme) {
       $items['admin/structure/block/list/' . $key . '/add-twitter-block'] = array(
@@ -71,7 +85,7 @@ function _twitter_block_themes_access($theme) {
 function twitter_block_form_block_admin_display_form_alter(&$form, &$form_state, $form_id) {
   $result = db_query('SELECT bid FROM {twitter_block}');
 
-  // Add delete links to Twitter Block blocks
+  // Add delete links to Twitter Block blocks.
   foreach ($result as $block) {
     $form['blocks']['twitter_block_' . $block->bid]['delete'] = array(
       '#type' => 'link',
@@ -93,6 +107,7 @@ function twitter_block_form_block_admin_display_form_alter(&$form, &$form_state,
  *   - bid: Block ID.
  *   - info: Block description.
  *   - widget_id: Widget ID.
+ *   - username: Account username.
  *   - theme: Theme.
  *   - link_color: Link color.
  *   - width: Width.
@@ -157,6 +172,7 @@ function twitter_block_custom_block_form($edit = array()) {
   $edit += array(
     'info' => '',
     'widget_id' => '',
+    'username' => '',
     'theme' => '',
     'link_color' => '',
     'width' => '',
@@ -183,6 +199,13 @@ function twitter_block_custom_block_form($edit = array()) {
     '#default_value' => $edit['widget_id'],
     '#required' => TRUE,
     '#description' => t('Each Twitter Block block requires a unique widget ID which determines, among other things, the source (user timeline, favourites, list or search) of the tweets to display. You can view a list of your existing embedded timeline widgets (and their widget IDs) or create new embedded timeline widgets by visiting the <a href="@widgets_section">widgets section of your settings page</a> (make sure that you\'re logged in). You can determine a widget\'s ID by editing it and inspecting the URL (which should be in the form of twitter.com/settings/widgets/WIDGET_ID/edit) or by looking at the widget\'s embed code (look for data-widget-id="WIDGET_ID").', array('@widgets_section' => 'https://twitter.com/settings/widgets')),
+  );
+  $form['username'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Username'),
+    '#default_value' => $edit['username'],
+    '#required' => TRUE,
+    '#description' => t('A Twitter account username. This is used to generate a fallback link to the Twitter account associated with the widget when JavaScript is not available. You can find your account username by visting the <a href="@account_section">account section of your settings page</a> or on your profile page in the URL or prefixed with @ under your display name.', array('@account_section' => 'https://twitter.com/settings/account')),
   );
   $form['appearance'] = array(
     '#type' => 'fieldset',
@@ -311,6 +334,7 @@ function twitter_block_block_save($delta = 0, $edit = array()) {
  *   Associative array of fields to save. Array keys:
  *   - info: Block description.
  *   - widget_id: Widget ID.
+ *   - username: Account username.
  *   - theme: Theme.
  *   - link_color: Link color.
  *   - width: Width.
@@ -342,11 +366,12 @@ function twitter_block_custom_block_save($edit, $delta) {
     'polite' => $edit['polite'],
   );
 
-  // Save the block configuration
+  // Save the block configuration.
   $delta = db_update('twitter_block')
     ->fields(array(
       'info' => $edit['info'],
       'widget_id' => $edit['widget_id'],
+      'username' => $edit['username'],
       'data' => serialize($data),
     ))
     ->condition('bid', $delta)
@@ -362,15 +387,15 @@ function twitter_block_block_view($delta) {
   // Load the configuration.
   $config = twitter_block_block_get($delta);
 
-  // Unserialize the timeline 
+  // Unserialize the timeline.
   $data = unserialize($config['data']);
 
   $block = array();
   $block['subject'] = check_plain($config['info']);
   $block['content'] = array(
-    '#theme' => 'link',
-    '#text' => 'Tweets by @twitterapi',
-    '#path' => 'https://twitter.com/twitterapi',
+    '#type' => 'link',
+    '#title' => t('Tweets by @username', array('@username' => $config['username'])),
+    '#href' => 'https://twitter.com/' . $config['username'],
     '#options' => array(
       'attributes' => array(
         'class' => array('twitter-timeline'),
@@ -378,14 +403,25 @@ function twitter_block_block_view($delta) {
       ),
       'html' => FALSE,
     ),
-    '#attached' => array(
-      'js' => array(
-        'https://platform.twitter.com/widgets.js' => array(
-          'type' => 'external',
-        ),
-      ),
-    ),
   );
+
+  // Use a locally cached copy of widgets.js by default.
+  if (variable_get('twitter_block_cache', TRUE) && $url = twitter_block_cache()) {
+    $block['content']['#attached']['js'] = array(
+      array(
+        'data' => $url,
+        'type' => 'file',
+      ),
+    );
+  }
+  else {
+    $block['content']['#attached']['js'] = array(
+      '//platform.twitter.com/widgets.js' => array(
+        'type' => 'external',
+        'scope' => 'footer',
+      ),
+    );
+  }
 
   if (!empty($data['theme'])) {
     $block['content']['#options']['attributes']['data-theme'] = $data['theme'];
@@ -434,8 +470,76 @@ function twitter_block_block_view($delta) {
   }
 
   if (!empty($data['polite'])) {
-    $block['content']['#options']['attributes']['aria-polite'] = $data['polite'];
+    $block['content']['#options']['attributes']['data-aria-polite'] = $data['polite'];
   }
 
   return $block;
+}
+
+/**
+ * Download/Synchronize/Cache widget code file locally.
+ *
+ * @param $sync_cached_file
+ *   Synchronize widget code and update if remote file have changed.
+ * @return mixed
+ *   The path to the local javascript file on success, boolean FALSE on failure.
+ */
+function twitter_block_cache($sync_cached_file = FALSE) {
+  $location = 'http://platform.twitter.com/widgets.js';
+  $path = 'public://twitter_block';
+  $file_destination = $path . '/' . basename($location);
+
+  if (!file_exists($file_destination) || $sync_cached_file) {
+    // Download the latest widget code.
+    $result = drupal_http_request($location);
+
+    if ($result->code == 200) {
+      if (file_exists($file_destination)) {
+        // Synchronize widget code and and replace local file if outdated.
+        $data_hash_local = drupal_hash_base64(file_get_contents($file_destination));
+        $data_hash_remote = drupal_hash_base64($result->data);
+        // Check that the files directory is writable.
+        if ($data_hash_local != $data_hash_remote && file_prepare_directory($path)) {
+          // Save updated widget code file to disk.
+          file_unmanaged_save_data($result->data, $file_destination, FILE_EXISTS_REPLACE);
+          watchdog('twitter_block', 'Locally cached widget code file has been updated.', array(), WATCHDOG_INFO);
+
+          // Change query-strings on css/js files to enforce reload for all users.
+          _drupal_flush_css_js();
+        }
+      }
+      else {
+        // Check that the files directory is writable.
+        if (file_prepare_directory($path, FILE_CREATE_DIRECTORY)) {
+          // There is no need to flush JS here as core refreshes JS caches
+          // automatically, if new files are added.
+          file_unmanaged_save_data($result->data, $file_destination, FILE_EXISTS_REPLACE);
+          watchdog('twitter_block', 'Locally cached widget code file has been saved.', array(), WATCHDOG_INFO);
+
+          // Return the local JS file path.
+          return file_create_url($file_destination);
+        }
+      }
+    }
+  }
+  else {
+    // Return the local JS file path.
+    return file_create_url($file_destination);
+  }
+}
+
+/**
+ * Delete cached files and directory.
+ */
+function twitter_block_clear_js_cache() {
+  $path = 'public://twitter_block';
+  if (file_prepare_directory($path)) {
+    file_scan_directory($path, '/.*/', array('callback' => 'file_unmanaged_delete'));
+    drupal_rmdir($path);
+
+    // Change query-strings on css/js files to enforce reload for all users.
+    _drupal_flush_css_js();
+
+    watchdog('twitter_block', 'Local cache has been purged.', array(), WATCHDOG_INFO);
+  }
 }
