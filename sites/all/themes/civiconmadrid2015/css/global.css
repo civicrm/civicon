@@ -4,31 +4,31 @@
 /* Text */
 
 body {
-	font-size: 16px;
-	line-height: 1.4;
-	color: #4d4d4d;
-	font-family: Raleway;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #4d4d4d;
+    font-family: Raleway;
 }
 p {
-	margin: 0.8em 0;
+    margin: 0.8em 0;
 }
 
 /* Titles */
 
 h1, h2, h3, h4,
 h2.block-title{
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
     font-family: "Sansita One";
-	color: #63A297;
+    color: #63A297;
     margin: 0.6em 0 0.3em;
     letter-spacing: -0.025em;
 }
 h1#page-title {
-	font-size: 3em; /* 42px @ 14px */
-	color: #63A297;
+    font-size: 3em; /* 42px @ 14px */
+    color: #63A297;
 }
 h2, h2.block-title {
-	font-size: 2em; /* 42px @ 14px */
+    font-size: 2em; /* 42px @ 14px */
 }
 
 .front p.date {
@@ -45,18 +45,18 @@ h2, h2.block-title {
 }
 /* Links */
 a, a:link, a:visited {
-	color: #2E2E40;
-	text-decoration: none;
+    color: #2E2E40;
+    text-decoration: none;
 }
 a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Blocks */
 
 .block{
-	margin-top: 60px;
-	margin-bottom: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 /* Normal pages */
@@ -115,15 +115,15 @@ html body.admin-menu{
 }
 /* Postscript */
 #zone-postscript-wrapper {
-	background-color: #63A297;
+    background-color: #63A297;
 }
 #zone-postscript h2, zone-postscript p {
-	color: #eae5e2;
+    color: #eae5e2;
     text-align: center;
 }
 
 #zone-footer-wrapper {
-	background-color: #eae5e2;
+    background-color: #eae5e2;
     text-align: center;
 }
 /* Menu */
@@ -150,32 +150,32 @@ ul.nice-menu a:link {
 }
 
 .nice-menu li.last {
-	margin-right: 0;
+    margin-right: 0;
 }
 .nice-menu a,
 .nice-menu a:link,
 .nice-menu a:visited,
 .nice-menu a:hover {
-	color: #63A297;
-	text-decoration: none;
-	padding: 0 0.5em;
+    color: #63A297;
+    text-decoration: none;
+    padding: 0 0.5em;
 }
 
 .nice-menu a:hover,
 .nice-menu a.active {
-	color: #2E2E40;
+    color: #2E2E40;
 }
 
 
 .nice-menu li.last {
-	background-color: #2E2E40;
+    background-color: #2E2E40;
 }
 
 .nice-menu li.last a {
-	color: white;
+    color: white;
 }
 .nice-menu li.last a:hover {
-	color: #63A297;
+    color: #63A297;
 }
 
 .nice-menu li ul {
@@ -184,57 +184,57 @@ ul.nice-menu a:link {
     top: 45px;
 }
 .nice-menu li ul li {
-	text-align: left;
-	font-size: 0.75em; /* 12px */
-	margin: 0;
+    text-align: left;
+    font-size: 0.75em; /* 12px */
+    margin: 0;
 }
 .nice-menu li ul li a,
 .nice-menu li ul li a:link,
 .nice-menu li ul li a:visited {
-	background-color: #eae5e2;
-	color: #2E2E40;
-	padding: 0.25em 0.66em;
+    background-color: #eae5e2;
+    color: #2E2E40;
+    padding: 0.25em 0.66em;
 }
 .nice-menu li ul li a:hover {
-	color: #63A297;
+    color: #63A297;
 }
 
 
 /* Tables */
 
 table {
-	width: 100%;
+    width: 100%;
     border-width: 0px;
 }
 table td {
-	padding: 0.75em;
-	background-color: #eae5e2;
-	border: 0px solid #fff;
-	border-top: 10px solid #fff;
+    padding: 0.75em;
+    background-color: #eae5e2;
+    border: 0px solid #fff;
+    border-top: 10px solid #fff;
     vertical-align: top;
 }
 
 #region-content ul,
 #region-content ol {
-	list-style: disc outside none;
-	padding-left: 2em;
+    list-style: disc outside none;
+    padding-left: 2em;
 }
 #region-content ol {
-	list-style: decimal outside none;
+    list-style: decimal outside none;
 }
 #region-content li {
-	margin: 0.25em 0;
+    margin: 0.25em 0;
 }
 #region-content .vertical-tabs ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 #region-content .vertical-tabs li {
-	margin: 0;
+    margin: 0;
 }
 div.vertical-tabs {
-	margin: 1em;
+    margin: 1em;
 }
 
 
@@ -243,17 +243,17 @@ div.vertical-tabs {
 .element-invisible,
 h1.site-name, 
 h6.site-slogan {
-	margin: 0;
-	display: none;
+    margin: 0;
+    display: none;
 }
 h1.site-name a {
-	display: none;
-	visibility: hidden;
+    display: none;
+    visibility: hidden;
 }
 
 .logo-img a,
 img#logo {
-	display: block;
+    display: block;
 }
 
 img#logo {
@@ -262,16 +262,16 @@ img#logo {
 
 /* Twitter */
 .twitter-icon {
-	position: absolute;
-	top: 5px;
-	right: 0;
+    position: absolute;
+    top: 5px;
+    right: 0;
 }
 .twitter-icon p {
-	margin: 0;
+    margin: 0;
 }
 .twitter-icon .content a,
 .twitter-icon img {
-	display: block;
+    display: block;
 }
 
 /* Zones */
@@ -280,8 +280,8 @@ img#logo {
 /* Home page (and footer text)  */
 
 .front p, #region-footer-first p {
-	text-align: center;
-	font-size: 24px; /* 22px @ 14px */
+    text-align: center;
+    font-size: 24px; /* 22px @ 14px */
 }
 
 .front h1, .front h2{
@@ -304,42 +304,42 @@ img#logo {
 /* sessions */
 
 .node-session .field {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 .sessions th,
 .node-session .field-label {
-	font-size: 1.2857em; /* 18px @ 14px */
+    font-size: 1.2857em; /* 18px @ 14px */
 }
 .node-session .field-name-field-session-time .field-item,
 .node-session .field-name-field-role .field-item,
 .node-session .field-name-field-length .field-item {
-	padding: 6px 0 6px 36px;
-	font-weight: bold;
-	background: url(images/clock.png) no-repeat 0 center;
+    padding: 6px 0 6px 36px;
+    font-weight: bold;
+    background: url(images/clock.png) no-repeat 0 center;
 }
 .node-session .field-name-field-role .field-item {
-	background-image: url(images/user.png);
+    background-image: url(images/user.png);
 }
 .node-session .field-name-field-length .field-item {
-	background-image: url(images/speechbubble.png);
+    background-image: url(images/speechbubble.png);
 }
 .sessions th,
 .sessions td {
-	padding: 10px 15px;
+    padding: 10px 15px;
 }
 .sessions th,
 .sessions .views-field-title {
-	font-weight: bold;
+    font-weight: bold;
 }
 .sessions tbody tr,
 .sessions tbody tr.even,
 .sessions tbody tr.odd {
-	background-color: transparent;
-	border-top: 2px solid #0E526B;
-	border-bottom: 0 none;
+    background-color: transparent;
+    border-top: 2px solid #0E526B;
+    border-bottom: 0 none;
 }
 .view-sessions-per-day-room h3 {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 
 /* sponsor ribbons */
@@ -348,70 +348,70 @@ img#logo {
 .lunch,
 .silver,
 .bronze {
-	overflow: hidden;
-	text-align: center;
+    overflow: hidden;
+    text-align: center;
 }
 .gold,
 .lunch,
 .silver {
-	font-size: 0;
+    font-size: 0;
 }
 .gold .views-row,
 .lunch .views-row,
 .silver .views-row,
 .bronze .views-row {
-	display: inline-block;
-	vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
 }
 .views-field-field-sponsor-logo {
-	padding: 20px 10px 0 10px;
-	background-color: #fff;
+    padding: 20px 10px 0 10px;
+    background-color: #fff;
 }
 .bronze .views-row h4 {
-	margin-right: 12px;
+    margin-right: 12px;
 }
 .bronze .views-row h4 a {
-	padding-left: 26px;
-	background: url(images/bronze.png) no-repeat left center;
-	display: inline-block;
-	color: #fff;
-	text-decoration: none;
+    padding-left: 26px;
+    background: url(images/bronze.png) no-repeat left center;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* small size ribbons */
 .gold .views-row,
 .lunch .views-row {
-	width: 130px;
-	margin: 0 6px;
-	background: url(images/gold-normal.png) no-repeat center bottom;
-	padding-bottom: 58px;
+    width: 130px;
+    margin: 0 6px;
+    background: url(images/gold-normal.png) no-repeat center bottom;
+    padding-bottom: 58px;
 }
 .lunch .views-row {
-	background-image: url(images/lunch-normal.png);
+    background-image: url(images/lunch-normal.png);
 }
 .silver .views-row {
-	width: 86px;
-	margin: 0 4px;
-	background: url(images/silver-normal.png) no-repeat center bottom;
-	padding-bottom: 44px;
+    width: 86px;
+    margin: 0 4px;
+    background: url(images/silver-normal.png) no-repeat center bottom;
+    padding-bottom: 44px;
 }
 .gold .views-field-field-sponsor-logo {
-	height: 110px;
+    height: 110px;
 }
 .lunch .views-field-field-sponsor-logo {
-	height: 90px;
+    height: 90px;
 }
 .silver .views-field-field-sponsor-logo {
-	height: 52px;
-	padding: 10px 5px 0 5px;
+    height: 52px;
+    padding: 10px 5px 0 5px;
 }
 
 /* sponsor page */
 .node-sponsor .field {
-	margin-bottom: 1.6em;
+    margin-bottom: 1.6em;
 }
 .stButton {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 
@@ -441,6 +441,30 @@ img#logo {
 }
 
 #region-sidebar .block {
-	margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
+/*Block language*/
+
+.block-language li{        
+    list-style-type:none;
+    display: inline-block;
+    margin-left:5px;        
+    padding-right:5px;        
+}
+
+.block-language li.first{
+    border-right: 1px solid;
+}
+
+.block.block-language {
+    float:right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+#region-user-second {
+    float:right;
+    height: 15px;
+}
