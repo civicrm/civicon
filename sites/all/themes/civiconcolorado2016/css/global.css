@@ -61,6 +61,11 @@ a:hover {
 	margin-bottom: 60px;
 }
 
+
+.responsive-layout-mobile {
+    margin-top: 200px;
+}
+
 /* Normal pages */
 
 .block-system-main{
