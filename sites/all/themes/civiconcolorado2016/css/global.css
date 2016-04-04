@@ -459,3 +459,26 @@ img#logo {
 #region-sidebar .block {
 	margin-bottom: 2em;
 }
+
+.gold .views-row .padder:before{
+float:left;
+margin:-20px 0 20px -10px;
+height:10px;
+background:white;
+padding:5px 0 0;
+content:"GLOBAL	";
+width:120%;
+height:20px;
+text-align:center;
+color:white;
+font-size:13px;
+}
+.gold .views-row .y:before{
+background:#48c1b4 ;
+content:"GLOBAL";
+font-weight:bold;
+letter-spacing:1px;
+}
+.bronze .views-row h4 a{
+	color:black;
+}
