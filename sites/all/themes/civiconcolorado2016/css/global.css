@@ -460,7 +460,7 @@ img#logo {
 	margin-bottom: 2em;
 }
 
-.gold .views-row .padder:before{
+.view-silver-bronze-sponsors .views-row .padder:before{
 float:left;
 margin:-20px 0 20px -10px;
 height:10px;
@@ -473,12 +473,25 @@ text-align:center;
 color:white;
 font-size:13px;
 }
-.gold .views-row .y:before{
+.view-silver-bronze-sponsors .views-row .Yes:before{
 background:#48c1b4 ;
 content:"GLOBAL";
 font-weight:bold;
 letter-spacing:1px;
 }
+.view-silver-bronze-sponsors.silver .views-row .padder:before{
+margin:-10px 0 5px -5px;
+width:113%;
+}
+.view-silver-bronze-sponsors .views-row .Yes:before{
+font-size:12px;
+height:18px;
+padding:2px 0 0;
+}
+.silver .views-field-field-sponsor-logo{
+	height:68px;
+}
 .bronze .views-row h4 a{
 	color:black;
 }
+
