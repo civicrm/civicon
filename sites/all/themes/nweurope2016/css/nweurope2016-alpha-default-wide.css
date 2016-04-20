@@ -1,0 +1,55 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+/*
+.hp-intro {
+	width: 65%;
+}
+.front .node-page {
+	width: 70%;
+}
+#zone-preface-wrapper {
+	background: #0B6186 url(images/logos-wide.png) no-repeat center center;
+}
+#zone-preface {
+	background: url(images/dude-75.png) repeat-x 0 bottom;
+	padding-bottom: 86px;
+}
+
+
+/* sponsors */
+/* back to bigger size ribbons 
+.gold .views-row,
+.lunch .views-row {
+	width: 170px;
+	margin: 0 15px;
+	background: url(images/gold-wide.png) no-repeat center bottom;
+	padding-bottom: 78px;
+}
+.lunch .views-row {
+	float: none;
+	background-image: url(images/lunch-wide.png);
+}
+.silver .views-row {
+	width: 120px;
+	margin: 0 15px;
+	background: url(images/silver-wide.png) no-repeat center bottom;
+	padding-bottom: 64px;
+}
+.gold .views-field-field-sponsor-logo {
+	height: 140px;
+}
+.silver .views-field-field-sponsor-logo {
+	height: 60px;
+	padding-top: 10px;
+}
+
+/* taking off relevant margins to keep ribbon rows centered (margin styles above override ones in normal.css)
+.gold .views-row-last,
+.silver .views-row-last {
+	margin-right: 0;
+}
+.gold .views-row-first,
+.silver .views-row-first {
+	margin-left: 0;
+}
+
+*/
