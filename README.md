@@ -4,6 +4,15 @@ This repository has the code base that we currently use to create CiviCon and Ci
 
 Our current policy is to use a multisite set up for all cons and camps, etc and to archive them .
 
+## To deploy changes
+
+To ensure file permissions are correct and for everyone's sanity, please use the following proceedure when deploying changes to production.
+
+1. Log into www-prod: `$ ssh www-prod`
+2. Switch to the civicon user: `sudo -u civicon -H bash`
+3. Switch to the civicon directory: `$ cd /var/www/civicon`
+4. Git pull: `$ git pull`
+
 ## To create a new site
 
 1. create a new site directory in the sites/ directory
