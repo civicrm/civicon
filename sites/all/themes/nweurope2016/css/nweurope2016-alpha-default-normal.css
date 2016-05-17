@@ -1,0 +1,66 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+
+/*
+
+img#logo {
+	width: 400px;
+	height: 100px;
+}
+#section-content {
+	margin-top: 160px;
+}
+.front #section-content {
+	margin-top: 130px;
+}
+.navigation,
+.block-nice-menus {
+	padding: 54px 48px 0 0;
+}
+#main-menu li a,
+.nice-menu li a {
+	font-size: 1.4285em; /* 20px @ 14px 
+}
+#zone-preface-wrapper {
+	background: #0B6186 url(images/logos-normal.png) no-repeat center center;
+}
+
+/* sponsors */
+/* back to smaller size ribbons 
+.gold .views-row,
+.lunch .views-row {
+	width: 130px;
+	margin: 0 12px;
+	background: url(images/gold-normal.png) no-repeat center bottom;
+	padding-bottom: 58px;
+}
+.lunch .views-row {
+	background-image: url(images/lunch-normal.png);
+}
+.silver .views-row {
+	width: 100px;
+	margin: 0 10px;
+	background: url(images/silver-normal.png) no-repeat center bottom;
+	padding-bottom: 54px;
+}
+.gold .views-field-field-sponsor-logo,
+.lunch .views-field-field-sponsor-logo {
+	height: 110px;
+}
+.silver .views-field-field-sponsor-logo {
+	height: 52px;
+	padding: 10px 5px 0 5px;
+}
+
+/* taking off relevant margins to keep ribbon rows centered (margin styles above override ones in narrow.css) 
+.gold .views-row-last,
+.silver .views-row-last {
+	margin-right: 0;
+}
+.gold .views-row-first,
+.silver .views-row-first {
+	margin-left: 0;
+}
+
+*/
